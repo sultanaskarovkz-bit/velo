@@ -112,27 +112,16 @@
   .burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;width:44px;height:44px;color:var(--pine)}
 
   /* ---------- Hero ---------- */
-  .hero{
-    position:relative;overflow:hidden;
-    background:
-      linear-gradient(102deg, rgba(6,38,25,.94) 0%, rgba(11,61,46,.86) 40%, rgba(15,82,54,.55) 72%, rgba(15,82,54,.34) 100%),
-      url('img/hero-ride-forest.jpg') center 35%/cover no-repeat;
-    color:#fff;
-  }
-  .hero::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background:repeating-linear-gradient(115deg, rgba(255,255,255,.04) 0 2px, transparent 2px 27px);
-    opacity:.6;
-  }
-  .hero::after{
-    content:"";position:absolute;right:-14%;top:-30%;width:58%;height:170%;
-    background:linear-gradient(180deg,var(--lime),transparent);
-    transform:skewX(-16deg);opacity:.15;filter:blur(7px);pointer-events:none;
-  }
-  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:2.5rem;align-items:center;padding:3.4rem 0 3.8rem}
-  .hero h1{font-size:clamp(2.6rem,6.4vw,5rem);margin:1rem 0 1.1rem}
+  .hero{position:relative;overflow:hidden;color:#fff;background:#0B3D2E}
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;z-index:0}
+  .hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(102deg, rgba(6,38,25,.93) 0%, rgba(11,61,46,.84) 44%, rgba(9,45,30,.64) 100%);}
+  .hero-veil::after{content:"";position:absolute;right:-14%;top:-30%;width:58%;height:170%;
+    background:linear-gradient(180deg,var(--lime),transparent);transform:skewX(-16deg);opacity:.13;filter:blur(7px)}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:2.5rem;align-items:center;padding:3.4rem 0 3.8rem}
+  .hero h1{font-size:clamp(2.3rem,6vw,4.8rem);margin:1rem 0 1.1rem}
   .hero h1 .slash{color:var(--lime-l);font-style:italic}
-  .hero p.lead{font-size:1.12rem;color:rgba(255,255,255,.82);max-width:33ch;margin-bottom:1.7rem}
+  .hero p.lead{font-size:1.12rem;color:rgba(255,255,255,.85);max-width:34ch;margin-bottom:1.7rem}
   .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
   .hero-facts{display:flex;gap:1.6rem;margin-top:2rem;flex-wrap:wrap}
   .hero-facts .f{display:flex;flex-direction:column}
@@ -191,8 +180,8 @@
   .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
   .bike{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s, box-shadow .18s}
   .bike:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .bike-img{position:relative;aspect-ratio:4/3;background:#eef4ee;overflow:hidden}
-  .bike-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .bike-img{position:relative;aspect-ratio:4/3;background:#fff;overflow:hidden}
+  .bike-img img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
   .bike:hover .bike-img img{transform:scale(1.05)}
   .badge{position:absolute;top:.8rem;left:.8rem;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:.72rem;letter-spacing:.08em;padding:.32rem .7rem;border-radius:7px;color:#fff}
   .badge.aseka{background:var(--pine)}
@@ -223,6 +212,24 @@
   .band-list svg{width:22px;height:22px;color:#c79bff;flex:0 0 auto;margin-top:2px}
   .band-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1}
   .band-media img{width:100%;height:100%;object-fit:cover}
+
+  /* ---------- Ride band (rider cutout) ---------- */
+  .ride-band{background:linear-gradient(115deg,#08301f,var(--pine) 55%,var(--pine-2));color:#fff;overflow:hidden;position:relative}
+  .ride-band::after{content:"";position:absolute;right:-8%;top:-45%;width:46%;height:190%;background:linear-gradient(180deg,var(--lime),transparent);transform:skewX(-16deg);opacity:.12;pointer-events:none}
+  .ride-inner{display:flex;align-items:center;gap:2rem;padding:2.2rem 0;position:relative;z-index:2}
+  .ride-text{flex:1}
+  .ride-text h2{font-size:clamp(1.7rem,4vw,2.7rem);color:#fff}
+  .ride-text h2 em{color:var(--lime-l);font-style:italic}
+  .ride-text p{color:rgba(255,255,255,.82);margin:.6rem 0 1.2rem;max-width:42ch}
+  .ride-figure{width:min(370px,40%);flex:0 0 auto;filter:drop-shadow(0 22px 30px rgba(0,0,0,.45))}
+
+  /* Decorative blue bike in features */
+  .why-wrap{position:relative}
+  .blue-decor{position:absolute;right:-10px;top:-30px;width:300px;opacity:.9;pointer-events:none;
+    filter:drop-shadow(0 20px 30px rgba(11,61,46,.25)) saturate(1.05)}
+
+  /* CTA figure */
+  .cta-figure{position:absolute;left:-40px;bottom:0;width:340px;z-index:1;pointer-events:none;filter:drop-shadow(0 22px 30px rgba(0,0,0,.4))}
 
   /* ---------- Gallery ---------- */
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem}
@@ -279,8 +286,7 @@
 
   /* ---------- Responsive ---------- */
   @media(max-width:900px){
-    .hero-grid{grid-template-columns:1fr;gap:1.8rem;padding:2.4rem 0 2.8rem}
-    .lead-card{order:-1}
+    .hero-grid{grid-template-columns:1fr;gap:1.4rem;padding:2rem 0 2.4rem}
     .band-grid,.pay-grid,.cta-grid{grid-template-columns:1fr;gap:1.8rem}
     .feat-grid{grid-template-columns:repeat(2,1fr)}
     .cat-grid{grid-template-columns:repeat(2,1fr)}
@@ -292,15 +298,93 @@
     .foot-grid{grid-template-columns:1fr;gap:1.6rem}
     .mobar{display:flex}
     footer{padding-bottom:6rem}
+    .cta-figure,.blue-decor{display:none}
   }
-  @media(max-width:560px){
-    .feat-grid{grid-template-columns:1fr}
+
+  /* ===== PHONE ===== */
+  @media(max-width:600px){
+    body{font-size:15px}
+    .wrap{width:90vw}
+    .nav{height:58px}
+    .brand{font-size:1.25rem}
+    .brand .mark{width:30px;height:30px}
+
+    /* Hero: understand + 2 actions in first screen */
+    .hero-veil{background:linear-gradient(178deg, rgba(6,38,25,.80) 0%, rgba(9,45,30,.72) 55%, rgba(9,45,30,.82) 100%)}
+    .hero-grid{padding:1.4rem 0 1.8rem;gap:1rem}
+    .hero .eyebrow{font-size:.66rem;letter-spacing:.14em}
+    .hero h1{font-size:2rem;margin:.6rem 0 .7rem}
+    .hero p.lead{font-size:.98rem;margin-bottom:1rem;max-width:none}
+    .hero-cta{gap:.6rem}
+    .hero-cta .btn{flex:1;min-width:0;padding:.85rem .7rem;font-size:.92rem}
+    .hero-facts{display:none}
+
+    /* compact form on phone */
+    .lead-card{padding:1.15rem 1.05rem;border-radius:16px}
+    .lead-card h3{font-size:1.25rem}
+    .lead-card p.sub{font-size:.85rem;margin:.3rem 0 .8rem}
+    .field{margin-bottom:.6rem}
+    .field label{font-size:.75rem;margin-bottom:.25rem}
+    .field input,.field select{padding:.72rem .8rem;font-size:1rem}
+    .hide-mobile{display:none !important}
+
+    /* tighter sections + smaller headings */
+    .sec{padding:2.6rem 0}
+    .sec-head{margin-bottom:1.6rem}
+    .sec-head h2{font-size:1.7rem}
+    .sec-head p{font-size:.95rem}
+    .eyebrow{font-size:.7rem;letter-spacing:.16em}
+
+    .feat-grid{grid-template-columns:1fr;gap:.7rem}
+    .feat{padding:1.1rem 1.1rem;display:flex;align-items:flex-start;gap:.9rem;flex-wrap:wrap}
+    .feat .ic{width:42px;height:42px;margin-bottom:0;flex:0 0 auto}
+    .feat .ic svg{width:22px;height:22px}
+    .feat h3{font-size:1.1rem;flex:1}
+    .feat p{font-size:.9rem;flex-basis:100%}
+    .feat::after{display:none}
+
+    /* catalog: 2 compact cards per row */
+    .cat-grid{grid-template-columns:repeat(2,1fr);gap:.7rem}
+    .bike-body{padding:.7rem .75rem .85rem}
+    .bike-body h3{font-size:.98rem;margin-bottom:.4rem}
+    .specs{gap:.28rem;margin-bottom:.6rem}
+    .specs li{font-size:.66rem;padding:.18rem .4rem}
+    .bike-price{flex-direction:column;align-items:stretch;gap:.45rem}
+    .bike-price .p{font-size:.75rem}
+    .bike .btn{width:100%;padding:.6rem;font-size:.8rem}
+    .badge{font-size:.6rem;padding:.24rem .5rem;top:.5rem;left:.5rem}
+
+    .band-grid{padding:2.4rem 0}
+    .band-grid h2{font-size:1.7rem}
+    .band-grid p{font-size:.95rem}
+    .band-media{aspect-ratio:4/3}
+    .ride-inner{flex-direction:column;text-align:center;padding:2rem 0;gap:1rem}
+    .ride-figure{width:78%}
+    .ride-text p{margin-inline:auto}
+    .ride-text h2{font-size:1.6rem}
+
+    .pay-cards{grid-template-columns:1fr 1fr;gap:.6rem}
+    .pay-card{padding:.8rem;flex-direction:column;text-align:center;gap:.5rem}
+    .pay-card .k{width:40px;height:40px}
+    .pay-card b{font-size:.9rem}
+    .pay-card span{font-size:.72rem}
+
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;gap:.6rem}
+    .gallery .big{grid-column:span 2;grid-row:span 1}
+    .gallery .tall{grid-row:span 1}
+
+    .cta-grid h2{font-size:1.8rem}
+    .cta-grid p{font-size:.95rem}
+    .cta-benefits li{font-size:.9rem}
+
+    .foot-phone{font-size:1.3rem}
+    .ticker-track{font-size:.85rem;gap:1.8rem;padding:.7rem 0}
+  }
+
+  @media(max-width:360px){
     .cat-grid{grid-template-columns:1fr}
     .pay-cards{grid-template-columns:1fr}
-    .gallery{grid-template-columns:1fr;grid-auto-rows:200px}
-    .gallery .big,.gallery .tall{grid-column:auto;grid-row:auto}
-    .hero-facts{gap:1.1rem}
-    .sec{padding:3.4rem 0}
+    .hero h1{font-size:1.75rem}
   }
 
   /* Mobile drawer */
@@ -359,11 +443,15 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="img/hero-ride-forest.jpg" aria-hidden="true">
+    <source src="media/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-veil"></div>
   <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow light">VELO - доверие. инновации. твой выбор</span>
+    <div class="hero-copy">
+      <span class="eyebrow light">Велосипеды ASEKA и IBARS в Казахстане</span>
       <h1>Скорость <span class="slash">в твоем</span> ритме</h1>
-      <p class="lead">Горные и складные велосипеды ASEKA и IBARS. Прочная рама, 21 скорость, двойные дисковые тормоза и амортизация. Для города, трассы и приключений.</p>
+      <p class="lead">Горные и складные велосипеды. 21 скорость, дисковые тормоза, амортизация. Доставка по Казахстану, рассрочка Kaspi.</p>
       <div class="hero-cta">
         <a class="btn btn-lime" href="tel:+77710375842">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -382,17 +470,17 @@
     <!-- Hero lead form -->
     <div class="lead-card" id="zayavka-top">
       <form id="leadFormTop" novalidate>
-        <h3>Узнать цену и наличие</h3>
-        <p class="sub">Оставьте заявку - перезвоним в течение 15 минут и подберем велосипед под ваш рост и бюджет.</p>
+        <h3>Заявка за 1 минуту</h3>
+        <p class="sub">Перезвоним в течение 15 минут, подскажем цену, наличие и подберем размер.</p>
         <div class="field">
           <label for="nt">Ваше имя</label>
           <input id="nt" name="name" type="text" placeholder="Например, Асхат" required>
         </div>
         <div class="field">
           <label for="pt">Телефон</label>
-          <input id="pt" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required>
+          <input id="pt" name="phone" type="tel" inputmode="tel" placeholder="+7 (___) ___ __ __" required>
         </div>
-        <div class="field">
+        <div class="field hide-mobile">
           <label for="mt">Интересует модель</label>
           <select id="mt" name="model">
             <option>Помогите выбрать</option>
@@ -402,8 +490,8 @@
             <option>Модель без скоростей</option>
           </select>
         </div>
-        <button class="btn btn-primary btn-block" type="submit">Отправить заявку</button>
-        <p class="lead-note">Нажимая кнопку, вы соглашаетесь на обработку данных. Без спама.</p>
+        <button class="btn btn-primary btn-block" type="submit">Оставить заявку</button>
+        <p class="lead-note hide-mobile">Нажимая кнопку, вы соглашаетесь на обработку данных. Без спама.</p>
       </form>
       <div class="form-ok" id="okTop">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
@@ -425,7 +513,8 @@
 
 <!-- ===== WHY / FEATURES ===== -->
 <section class="sec" id="why">
-  <div class="wrap">
+  <div class="wrap why-wrap">
+    <img class="blue-decor" src="img/cutout-blue-mtb.png" alt="Горный велосипед" loading="lazy">
     <div class="sec-head reveal">
       <span class="eyebrow">Почему VELO</span>
       <h2>Собрано, чтобы ехать долго</h2>
@@ -467,6 +556,19 @@
       <span class="lbl">Диаметр колес:</span>
       <span class="chip">20"</span><span class="chip">22"</span><span class="chip">24"</span><span class="chip hot">26"</span><span class="chip">27.5"</span><span class="chip">29"</span>
     </div>
+  </div>
+</section>
+
+<!-- ===== RIDE BAND ===== -->
+<section class="ride-band">
+  <div class="wrap ride-inner">
+    <div class="ride-text reveal">
+      <span class="eyebrow light">Для города, трассы и приключений</span>
+      <h2>Готов покорять <em>любой маршрут</em></h2>
+      <p>Оставьте заявку - подберем велосипед под ваш рост и стиль езды, расскажем про наличие и рассрочку.</p>
+      <a class="btn btn-lime" href="#zayavka">Подобрать велосипед</a>
+    </div>
+    <img class="ride-figure reveal" src="img/cutout-rider.png" alt="Велосипедист на горном велосипеде" loading="lazy">
   </div>
 </section>
 
@@ -518,6 +620,7 @@
       <a><img src="img/promo-aseka-beach.jpg" alt="ASEKA для города и трассы" loading="lazy"></a>
       <a><img src="img/promo-ibars-mountain.jpg" alt="IBARS в горах" loading="lazy"></a>
       <a class="tall"><img src="img/promo-aseka-blue.jpg" alt="ASEKA - размеры колес 20, 22, 24, 26, 27.5, 29" loading="lazy"><span class="cap">6 размеров колес</span></a>
+      <a><img src="img/ride-sunset-wheel.jpg" alt="Велосипед на закате" loading="lazy"><span class="cap">Твое время кататься</span></a>
     </div>
   </div>
 </section>
@@ -640,20 +743,15 @@
 
   /* ---- Catalog data (real product photos) ---- */
   var bikes = [
-    {img:"cat-fold-white.jpg", badge:"fold", badgeText:"Складной 180", name:"ASEKA 180 белый", specs:["Складная рама","Магниевые диски","21 скорость","Амортизация"]},
     {img:"cat-fold-black.jpg", badge:"fold", badgeText:"Складной 180", name:"ASEKA 180 черный", specs:["Складная рама","Магниевые диски","21 скорость","Двойной аморт."]},
     {img:"cat-green-black.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA черно-зеленый", specs:["Стальная рама","Диск. тормоза","21 скорость","Колеса 24\""]},
     {img:"cat-blue.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA синий градиент", specs:["Алюм. рама","Диск. тормоза","21 скорость","Колеса 26\""]},
-    {img:"cat-black.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA черный", specs:["Прочная рама","Диск. тормоза","21 скорость","Колеса 29\""]},
     {img:"cat-red.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA серо-красный", specs:["Алюм. рама","Диск. тормоза","21 скорость","Амортизация"]},
     {img:"cat-blue-yellow.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA сине-желтый", specs:["Стальная рама","Диск. тормоза","21 скорость","Колеса 29\""]},
     {img:"cat-gray.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA графит", specs:["Алюм. рама","Диск. тормоза","21 скорость","Амортизация"]},
     {img:"cat-white.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA белый спорт", specs:["Стальная рама","Диск. тормоза","21 скорость","Колеса 27.5\""]},
-    {img:"cat-red-gray.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA красно-серый", specs:["Алюм. рама","Диск. тормоза","21 скорость","Колеса 29\""]},
-    {img:"cat-gray-out.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA серый MTB", specs:["Прочная рама","Диск. тормоза","21 скорость","Внедорожные шины"]},
-    {img:"cat-ibars-purple.jpg", badge:"ibars", badgeText:"IBARS", name:"IBARS фиолетовый", specs:["Алюм. рама","Цветные обода","Диск. тормоза","Премиум"]},
-    {img:"cat-ibars-purple2.jpg", badge:"ibars", badgeText:"IBARS", name:"IBARS черно-пурпурный", specs:["Алюм. рама","Цветные обода","Амортизация","Премиум"]},
-    {img:"cat-red-ss.jpg", badge:"aseka", badgeText:"Без скоростей", name:"ASEKA черно-красный", specs:["Стальная рама","Без скоростей","Простота","Цветные спицы"]}
+    {img:"cat-red-ss.jpg", badge:"aseka", badgeText:"Без скоростей", name:"ASEKA черно-красный", specs:["Стальная рама","Без скоростей","Простота","Цветные спицы"]},
+    {img:"cat-ibars-purple.jpg", badge:"ibars", badgeText:"IBARS", name:"IBARS фиолетовый", specs:["Алюм. рама","Цветные обода","Диск. тормоза","Премиум"]}
   ];
 
   var badgeClass = {aseka:"badge aseka", ibars:"badge ibars", fold:"badge fold"};
