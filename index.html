@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELO - велосипеды ASEKA и IBARS в Казахстане | Доставка и рассрочка</title>
+<meta name="description" content="Горные и складные велосипеды ASEKA и IBARS: 21 скорость Shimano, двойные дисковые тормоза, амортизация, магниевые диски. Доставка по Казахстану, рассрочка Kaspi. Звоните: +7 771 037 58 42">
+<meta name="theme-color" content="#0B3D2E">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:title" content="VELO - велосипеды ASEKA и IBARS в Казахстане">
+<meta property="og:description" content="Горные и складные велосипеды. 21 скорость, дисковые тормоза, доставка по РК, рассрочка Kaspi.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/promo-hero-green.jpg">
+
+<style>
+  :root{
+    --pine:#0B3D2E;
+    --pine-2:#0F5138;
+    --green:#16A34A;
+    --green-d:#12833C;
+    --lime:#84CC16;
+    --lime-l:#A7F04A;
+    --bg:#F5F9F4;
+    --card:#FFFFFF;
+    --ink:#0E241B;
+    --muted:#5A6D62;
+    --line:#E1EBE1;
+    --ring:rgba(22,163,74,.35);
+    --shadow:0 18px 45px -22px rgba(11,61,46,.45);
+    --shadow-sm:0 8px 24px -16px rgba(11,61,46,.5);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,92vw);margin-inline:auto}
+  section{position:relative}
+
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    font-weight:700;
+    line-height:.98;
+    letter-spacing:.01em;
+  }
+  .eyebrow{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    font-weight:600;
+    letter-spacing:.22em;
+    font-size:.78rem;
+    color:var(--green-d);
+    display:inline-flex;align-items:center;gap:.55rem;
+  }
+  .eyebrow::before{
+    content:"";width:26px;height:3px;background:var(--lime);
+    transform:skewX(-20deg);display:inline-block;
+  }
+  .eyebrow.light{color:var(--lime-l)}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+    font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;
+    letter-spacing:.04em;font-size:1rem;
+    padding:.92rem 1.5rem;border-radius:12px;border:0;cursor:pointer;
+    transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+    white-space:nowrap;
+  }
+  .btn svg{width:19px;height:19px}
+  .btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 26px -12px rgba(22,163,74,.75)}
+  .btn-primary:hover{background:var(--green-d);transform:translateY(-2px)}
+  .btn-lime{background:var(--lime);color:var(--pine)}
+  .btn-lime:hover{background:var(--lime-l);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+  .btn-dark{background:var(--pine);color:#fff}
+  .btn-dark:hover{background:var(--pine-2);transform:translateY(-2px)}
+  .btn-block{width:100%}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(245,249,244,.86);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;gap:1.5rem;height:70px}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase;letter-spacing:.06em}
+  .brand .mark{width:34px;height:34px;flex:0 0 auto}
+  .brand small{font-family:'Manrope';font-weight:600;font-size:.58rem;letter-spacing:.25em;color:var(--muted);display:block;margin-top:-3px}
+  .nav-links{display:flex;gap:1.6rem;margin-left:auto}
+  .nav-links a{font-weight:600;font-size:.95rem;color:var(--muted);transition:color .15s}
+  .nav-links a:hover{color:var(--green-d)}
+  .nav-phone{display:flex;align-items:center;gap:.5rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.1rem;color:var(--pine)}
+  .nav-phone svg{width:18px;height:18px;color:var(--green)}
+  .nav .btn{padding:.7rem 1.15rem;font-size:.9rem}
+  .burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;width:44px;height:44px;color:var(--pine)}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      linear-gradient(102deg, rgba(6,38,25,.94) 0%, rgba(11,61,46,.86) 40%, rgba(15,82,54,.55) 72%, rgba(15,82,54,.34) 100%),
+      url('img/hero-ride-forest.jpg') center 35%/cover no-repeat;
+    color:#fff;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(115deg, rgba(255,255,255,.04) 0 2px, transparent 2px 27px);
+    opacity:.6;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-14%;top:-30%;width:58%;height:170%;
+    background:linear-gradient(180deg,var(--lime),transparent);
+    transform:skewX(-16deg);opacity:.15;filter:blur(7px);pointer-events:none;
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:2.5rem;align-items:center;padding:3.4rem 0 3.8rem}
+  .hero h1{font-size:clamp(2.6rem,6.4vw,5rem);margin:1rem 0 1.1rem}
+  .hero h1 .slash{color:var(--lime-l);font-style:italic}
+  .hero p.lead{font-size:1.12rem;color:rgba(255,255,255,.82);max-width:33ch;margin-bottom:1.7rem}
+  .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
+  .hero-facts{display:flex;gap:1.6rem;margin-top:2rem;flex-wrap:wrap}
+  .hero-facts .f{display:flex;flex-direction:column}
+  .hero-facts .f b{font-family:'Oswald',sans-serif;font-size:1.7rem;color:var(--lime-l);line-height:1}
+  .hero-facts .f span{font-size:.82rem;color:rgba(255,255,255,.7);margin-top:.25rem}
+
+  /* Hero lead form card */
+  .lead-card{
+    background:var(--card);color:var(--ink);border-radius:var(--radius);
+    padding:1.7rem 1.6rem;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.5);
+  }
+  .lead-card h3{font-size:1.5rem;color:var(--pine)}
+  .lead-card p.sub{font-family:'Manrope';font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:.92rem;margin:.4rem 0 1.1rem}
+  .field{margin-bottom:.8rem}
+  .field label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.32rem}
+  .field input,.field select{
+    width:100%;padding:.82rem .9rem;border:1.5px solid var(--line);border-radius:11px;
+    font-family:inherit;font-size:1rem;background:#fff;color:var(--ink);transition:border .15s, box-shadow .15s;
+  }
+  .field input:focus,.field select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 4px var(--ring)}
+  .lead-note{font-size:.76rem;color:var(--muted);margin-top:.7rem;text-align:center}
+  .form-ok{display:none;text-align:center;padding:1.4rem .5rem}
+  .form-ok.show{display:block}
+  .form-ok .ic{width:56px;height:56px;margin:0 auto 1rem;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;color:var(--pine)}
+  .form-ok h3{color:var(--pine)}
+
+  /* ---------- Marquee trust bar ---------- */
+  .ticker{background:var(--pine);color:#fff;overflow:hidden;border-block:3px solid var(--lime)}
+  .ticker-track{display:flex;gap:2.6rem;padding:.85rem 0;white-space:nowrap;width:max-content;animation:scroll 26s linear infinite;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-weight:500;font-size:.98rem}
+  .ticker-track span{display:inline-flex;align-items:center;gap:.6rem}
+  .ticker-track span::before{content:"";width:8px;height:8px;background:var(--lime);transform:skewX(-18deg)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- Section shell ---------- */
+  .sec{padding:4.6rem 0}
+  .sec-head{max-width:640px;margin-bottom:2.6rem}
+  .sec-head h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:.7rem 0 .6rem;color:var(--pine)}
+  .sec-head p{color:var(--muted);font-size:1.05rem}
+
+  /* ---------- Features ---------- */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem 1.5rem;transition:transform .18s, box-shadow .18s;position:relative;overflow:hidden}
+  .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+  .feat .ic{width:52px;height:52px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--pine-2));display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:1rem}
+  .feat .ic svg{width:26px;height:26px}
+  .feat h3{font-size:1.28rem;color:var(--pine);margin-bottom:.4rem}
+  .feat p{color:var(--muted);font-size:.95rem}
+  .feat::after{content:"";position:absolute;right:-30px;bottom:-30px;width:90px;height:90px;background:var(--lime);opacity:.08;transform:skewX(-20deg)}
+
+  .sizes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;align-items:center}
+  .sizes .lbl{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;color:var(--muted);letter-spacing:.1em;font-size:.9rem;margin-right:.4rem}
+  .chip{font-family:'Oswald',sans-serif;font-weight:600;background:#fff;border:1.5px solid var(--line);color:var(--pine);padding:.5rem .95rem;border-radius:999px;font-size:1rem}
+  .chip.hot{background:var(--pine);color:#fff;border-color:var(--pine)}
+
+  /* ---------- Catalog ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .bike{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s, box-shadow .18s}
+  .bike:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .bike-img{position:relative;aspect-ratio:4/3;background:#eef4ee;overflow:hidden}
+  .bike-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .bike:hover .bike-img img{transform:scale(1.05)}
+  .badge{position:absolute;top:.8rem;left:.8rem;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:.72rem;letter-spacing:.08em;padding:.32rem .7rem;border-radius:7px;color:#fff}
+  .badge.aseka{background:var(--pine)}
+  .badge.ibars{background:linear-gradient(135deg,#5b2a86,#7c3aed)}
+  .badge.fold{background:var(--green)}
+  .bike-body{padding:1.15rem 1.2rem 1.3rem;display:flex;flex-direction:column;flex:1}
+  .bike-body h3{font-size:1.32rem;color:var(--pine);margin-bottom:.55rem}
+  .specs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+  .specs li{list-style:none;font-size:.78rem;font-weight:600;color:var(--green-d);background:#EEF7EE;border:1px solid #DCEEDC;padding:.24rem .58rem;border-radius:6px}
+  .bike-price{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+  .bike-price .p{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;color:var(--muted);font-size:.9rem}
+  .bike .btn{padding:.7rem 1rem;font-size:.85rem}
+
+  /* ---------- IBARS band ---------- */
+  .band{position:relative;color:#fff;overflow:hidden;border-radius:0}
+  .ibars-band{
+    background:
+      linear-gradient(102deg, rgba(18,9,34,.92) 0%, rgba(30,17,58,.80) 42%, rgba(43,22,80,.48) 72%, rgba(43,22,80,.30) 100%),
+      url('img/hero-ride-sunset.jpg') center 40%/cover no-repeat;
+  }
+  .ibars-band::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg, rgba(255,255,255,.035) 0 2px, transparent 2px 27px);opacity:.5}
+  .band-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;padding:3.6rem 0}
+  .band-grid h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.8rem 0 1rem}
+  .band-grid h2 em{color:#c79bff;font-style:italic}
+  .band-grid p{color:rgba(255,255,255,.82);font-size:1.05rem;margin-bottom:1.5rem;max-width:44ch}
+  .band-list{display:grid;gap:.7rem;margin-bottom:1.7rem}
+  .band-list li{list-style:none;display:flex;gap:.7rem;align-items:flex-start;font-size:1rem;color:rgba(255,255,255,.9)}
+  .band-list svg{width:22px;height:22px;color:#c79bff;flex:0 0 auto;margin-top:2px}
+  .band-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1}
+  .band-media img{width:100%;height:100%;object-fit:cover}
+
+  /* ---------- Gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem}
+  .gallery a{border-radius:14px;overflow:hidden;position:relative;display:block}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .gallery a:hover img{transform:scale(1.06)}
+  .gallery .big{grid-column:span 2;grid-row:span 2}
+  .gallery .tall{grid-row:span 2}
+  .gallery .cap{position:absolute;left:0;bottom:0;right:0;padding:1rem;background:linear-gradient(transparent,rgba(11,61,46,.85));color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.05em;font-size:.9rem}
+
+  /* ---------- Payment ---------- */
+  .pay{background:#fff}
+  .pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+  .pay-cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+  .pay-card{border:1px solid var(--line);border-radius:14px;padding:1.2rem;display:flex;gap:.9rem;align-items:center;background:var(--bg)}
+  .pay-card .k{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;color:#fff;flex:0 0 auto;font-size:.9rem}
+  .k.kaspi{background:#F14635}
+  .k.halyk{background:#12A150}
+  .k.red{background:#c0392b}
+  .k.credit{background:#0F5138}
+  .pay-card b{display:block;font-size:1rem;color:var(--pine)}
+  .pay-card span{font-size:.82rem;color:var(--muted)}
+
+  /* ---------- Big form ---------- */
+  .cta-sec{background:linear-gradient(120deg,#0B3D2E,#12583a);color:#fff;overflow:hidden;position:relative}
+  .cta-sec::after{content:"";position:absolute;left:-10%;bottom:-40%;width:50%;height:150%;background:linear-gradient(var(--lime),transparent);transform:skewX(-16deg);opacity:.12}
+  .cta-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr .9fr;gap:3rem;align-items:center}
+  .cta-grid h2{font-size:clamp(2rem,4.8vw,3.4rem)}
+  .cta-grid h2 em{color:var(--lime-l);font-style:italic}
+  .cta-grid p{color:rgba(255,255,255,.82);font-size:1.08rem;margin:1rem 0 1.5rem;max-width:42ch}
+  .cta-benefits{display:grid;gap:.6rem}
+  .cta-benefits li{list-style:none;display:flex;gap:.6rem;align-items:center;color:rgba(255,255,255,.9)}
+  .cta-benefits svg{width:20px;height:20px;color:var(--lime-l)}
+
+  /* ---------- Footer ---------- */
+  footer{background:#07281a;color:rgba(255,255,255,.72);padding:3rem 0 6rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;align-items:start}
+  .foot-brand .brand{color:#fff}
+  footer p{font-size:.92rem;margin-top:.9rem;max-width:34ch}
+  .foot-col h4{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:#fff;margin-bottom:.9rem}
+  .foot-col a,.foot-col div{display:block;font-size:.95rem;margin-bottom:.55rem;color:rgba(255,255,255,.72)}
+  .foot-col a:hover{color:var(--lime-l)}
+  .foot-phone{font-family:'Oswald',sans-serif;font-size:1.5rem;color:#fff !important}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2.4rem;padding-top:1.4rem;font-size:.82rem;color:rgba(255,255,255,.5);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+  /* ---------- Sticky mobile bar ---------- */
+  .mobar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;background:#fff;border-top:1px solid var(--line);padding:.55rem .7rem;gap:.55rem;box-shadow:0 -8px 24px -14px rgba(11,61,46,.4)}
+  .mobar .btn{flex:1;padding:.85rem;font-size:.92rem}
+  .btn-wa{background:#25D366;color:#fff}
+
+  /* ---------- Reveal anim ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:1.8rem;padding:2.4rem 0 2.8rem}
+    .lead-card{order:-1}
+    .band-grid,.pay-grid,.cta-grid{grid-template-columns:1fr;gap:1.8rem}
+    .feat-grid{grid-template-columns:repeat(2,1fr)}
+    .cat-grid{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    .gallery .big{grid-column:span 2}
+    .nav-links,.nav-phone{display:none}
+    .burger{display:flex;align-items:center;justify-content:center}
+    .nav .btn.head-cta{display:none}
+    .foot-grid{grid-template-columns:1fr;gap:1.6rem}
+    .mobar{display:flex}
+    footer{padding-bottom:6rem}
+  }
+  @media(max-width:560px){
+    .feat-grid{grid-template-columns:1fr}
+    .cat-grid{grid-template-columns:1fr}
+    .pay-cards{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr;grid-auto-rows:200px}
+    .gallery .big,.gallery .tall{grid-column:auto;grid-row:auto}
+    .hero-facts{gap:1.1rem}
+    .sec{padding:3.4rem 0}
+  }
+
+  /* Mobile drawer */
+  .drawer{position:fixed;inset:0;z-index:100;background:rgba(7,40,26,.5);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .25s}
+  .drawer.open{opacity:1;pointer-events:auto}
+  .drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(310px,82vw);background:#fff;padding:1.6rem 1.4rem;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;gap:.4rem}
+  .drawer.open .drawer-panel{transform:none}
+  .drawer-panel a{padding:.85rem .4rem;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.04em;border-bottom:1px solid var(--line);color:var(--pine)}
+  .drawer-panel .btn{margin-top:1rem}
+  .drawer-close{align-self:flex-end;background:none;border:0;font-size:1.8rem;cursor:pointer;color:var(--pine);line-height:1;margin-bottom:.5rem}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="VELO на главную">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0B3D2E"/><g fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="42" r="10"/><circle cx="46" cy="42" r="10"/><path d="M18 42 L30 24 L44 24"/><path d="M30 24 L37 42 L46 42"/></g><path d="M40 20h8l-3 5h-8z" fill="#84CC16"/></svg>
+      <span>VELO<small>ASEKA / IBARS</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#catalog">Модели</a>
+      <a href="#why">Почему мы</a>
+      <a href="#pay">Оплата и доставка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-phone" href="tel:+77710375842">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +7 771 037 58 42
+    </a>
+    <a class="btn btn-primary head-cta" href="#zayavka">Оставить заявку</a>
+    <button class="burger" aria-label="Меню" id="burger">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose" aria-label="Закрыть">&times;</button>
+    <a href="#catalog" data-close>Модели</a>
+    <a href="#why" data-close>Почему мы</a>
+    <a href="#pay" data-close>Оплата и доставка</a>
+    <a href="#contacts" data-close>Контакты</a>
+    <a class="btn btn-dark btn-block" href="tel:+77710375842">Позвонить</a>
+    <a class="btn btn-lime btn-block" href="#zayavka" data-close>Оставить заявку</a>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow light">VELO - доверие. инновации. твой выбор</span>
+      <h1>Скорость <span class="slash">в твоем</span> ритме</h1>
+      <p class="lead">Горные и складные велосипеды ASEKA и IBARS. Прочная рама, 21 скорость, двойные дисковые тормоза и амортизация. Для города, трассы и приключений.</p>
+      <div class="hero-cta">
+        <a class="btn btn-lime" href="tel:+77710375842">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Позвонить
+        </a>
+        <a class="btn btn-ghost" href="#catalog">Смотреть модели</a>
+      </div>
+      <div class="hero-facts">
+        <div class="f"><b>6</b><span>размеров колес</span></div>
+        <div class="f"><b>21</b><span>скорость Shimano</span></div>
+        <div class="f"><b>РК</b><span>доставка по стране</span></div>
+        <div class="f"><b>Kaspi</b><span>рассрочка и кредит</span></div>
+      </div>
+    </div>
+
+    <!-- Hero lead form -->
+    <div class="lead-card" id="zayavka-top">
+      <form id="leadFormTop" novalidate>
+        <h3>Узнать цену и наличие</h3>
+        <p class="sub">Оставьте заявку - перезвоним в течение 15 минут и подберем велосипед под ваш рост и бюджет.</p>
+        <div class="field">
+          <label for="nt">Ваше имя</label>
+          <input id="nt" name="name" type="text" placeholder="Например, Асхат" required>
+        </div>
+        <div class="field">
+          <label for="pt">Телефон</label>
+          <input id="pt" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required>
+        </div>
+        <div class="field">
+          <label for="mt">Интересует модель</label>
+          <select id="mt" name="model">
+            <option>Помогите выбрать</option>
+            <option>ASEKA складной 180</option>
+            <option>ASEKA горный (хардтейл)</option>
+            <option>IBARS премиум</option>
+            <option>Модель без скоростей</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Отправить заявку</button>
+        <p class="lead-note">Нажимая кнопку, вы соглашаетесь на обработку данных. Без спама.</p>
+      </form>
+      <div class="form-ok" id="okTop">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Заявка принята!</h3>
+        <p class="sub">Мы открыли чат в WhatsApp. Если он не открылся автоматически - позвоните нам напрямую.</p>
+        <a class="btn btn-dark btn-block" href="tel:+77710375842">Позвонить сейчас</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>21 скорость Shimano</span><span>двойные дисковые тормоза</span><span>амортизация передней вилки</span><span>магниевые диски</span><span>стальные и алюминиевые рамы</span><span>доставка по всему Казахстану</span><span>рассрочка Kaspi</span>
+    <span>21 скорость Shimano</span><span>двойные дисковые тормоза</span><span>амортизация передней вилки</span><span>магниевые диски</span><span>стальные и алюминиевые рамы</span><span>доставка по всему Казахстану</span><span>рассрочка Kaspi</span>
+  </div>
+</div>
+
+<!-- ===== WHY / FEATURES ===== -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Почему VELO</span>
+      <h2>Собрано, чтобы ехать долго</h2>
+      <p>Каждый велосипед - это надежная рама и проверенные компоненты. Ничего лишнего, все для уверенной езды по городу и бездорожью.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+        <h3>Прочная рама</h3>
+        <p>Стальные и алюминиевые рамы на выбор под ваш стиль и задачи. Легкий ход, надежная геометрия.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>21 скорость Shimano</h3>
+        <p>Плавное переключение и полный контроль на любом маршруте - от ровного асфальта до крутого подъема.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Двойные дисковые тормоза</h3>
+        <p>Уверенное торможение спереди и сзади в любую погоду - на мокрой дороге и на спуске.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6"/><path d="M12 15v6"/><rect x="8" y="9" width="8" height="6" rx="2"/></svg></div>
+        <h3>Амортизация</h3>
+        <p>Передняя вилка гасит удары и вибрацию - меньше устаешь на длинной дистанции и грунтовке.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M6 6l12 12M18 6 6 18"/></svg></div>
+        <h3>Магниевые диски</h3>
+        <p>На складных моделях 180 - легкие литые магниевые диски. Стильно, прочно, не нужно спицевать.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h3>Разная комплектация</h3>
+        <p>Модели со скоростями и без, разные цвета и размеры колес. Подберем идеальный вариант для вас.</p>
+      </div>
+    </div>
+    <div class="sizes reveal">
+      <span class="lbl">Диаметр колес:</span>
+      <span class="chip">20"</span><span class="chip">22"</span><span class="chip">24"</span><span class="chip hot">26"</span><span class="chip">27.5"</span><span class="chip">29"</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATALOG ===== -->
+<section class="sec" id="catalog" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Модели в наличии</span>
+      <h2>Выбери свой велосипед</h2>
+      <p>Реальные фото со склада. Наличие цветов и размеров уточняйте у менеджера - поможем подобрать под рост и бюджет.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- ===== IBARS BAND ===== -->
+<section class="band ibars-band">
+  <div class="wrap band-grid">
+    <div class="reveal">
+      <span class="eyebrow light" style="color:#c79bff">IBARS - доступный премиум</span>
+      <h2>Двигайся <em>на уровень</em> выше</h2>
+      <p>Линейка IBARS для тех, кто выбирает лучшее: легкая алюминиевая рама, эффектные цветные обода и продуманная геометрия. Премиальный вид без переплаты.</p>
+      <ul class="band-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Легкая алюминиевая рама</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Двойные дисковые тормоза</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Амортизация и качественные компоненты</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Стильный дизайн и яркие обода</li>
+      </ul>
+      <a class="btn btn-lime" href="#zayavka">Узнать цену IBARS</a>
+    </div>
+    <div class="band-media reveal"><img src="img/promo-ibars-podium.jpg" alt="Велосипед IBARS на подиуме" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ===== GALLERY (photos not for catalog) ===== -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Внимание к деталям</span>
+      <h2>Каждый узел на своем месте</h2>
+      <p>Дисковые тормоза, амортизационная вилка, надежная трансмиссия и аккуратная сборка - крупным планом.</p>
+    </div>
+    <div class="gallery reveal">
+      <a class="big"><img src="img/promo-white-folding.jpg" alt="Складной велосипед ASEKA 180" loading="lazy"><span class="cap">ASEKA 180 - складная рама</span></a>
+      <a class="tall"><img src="img/detail-front.jpg" alt="Амортизационная вилка и передний дисковый тормоз" loading="lazy"><span class="cap">Амортизация + диск</span></a>
+      <a><img src="img/detail-handlebar.jpg" alt="Руль и манетки Shimano" loading="lazy"></a>
+      <a><img src="img/detail-rear.jpg" alt="Задний переключатель и трансмиссия" loading="lazy"></a>
+      <a class="tall"><img src="img/promo-aseka-black.jpg" alt="Горный велосипед ASEKA" loading="lazy"><span class="cap">Горная серия ASEKA</span></a>
+      <a><img src="img/promo-aseka-beach.jpg" alt="ASEKA для города и трассы" loading="lazy"></a>
+      <a><img src="img/promo-ibars-mountain.jpg" alt="IBARS в горах" loading="lazy"></a>
+      <a class="tall"><img src="img/promo-aseka-blue.jpg" alt="ASEKA - размеры колес 20, 22, 24, 26, 27.5, 29" loading="lazy"><span class="cap">6 размеров колес</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAYMENT & DELIVERY ===== -->
+<section class="sec pay" id="pay">
+  <div class="wrap pay-grid">
+    <div class="reveal">
+      <span class="eyebrow">Оплата и доставка</span>
+      <h2 style="font-family:'Oswald';text-transform:uppercase;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--pine);margin:.6rem 0 .8rem">Удобно платить, быстро получить</h2>
+      <p style="color:var(--muted);font-size:1.05rem;margin-bottom:1.4rem">Принимаем Kaspi и Halyk, оформляем рассрочку и кредит. Доставим велосипед в любой город Казахстана, в наличии - самовывоз из магазина.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#zayavka">Оформить заявку</a>
+        <a class="btn btn-dark" href="tel:+77710375842">Позвонить</a>
+      </div>
+    </div>
+    <div class="pay-cards reveal">
+      <div class="pay-card"><span class="k kaspi">QR</span><div><b>Kaspi QR</b><span>Оплата по QR-коду</span></div></div>
+      <div class="pay-card"><span class="k red">RED</span><div><b>Kaspi Red</b><span>Покупка в рассрочку</span></div></div>
+      <div class="pay-card"><span class="k credit">KR</span><div><b>Kaspi Kredit</b><span>Оформим за пару минут</span></div></div>
+      <div class="pay-card"><span class="k halyk">QR</span><div><b>Halyk QR</b><span>Оплата картой Halyk</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BIG LEAD FORM ===== -->
+<section class="sec cta-sec" id="zayavka">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <span class="eyebrow light">Оставить заявку</span>
+      <h2>Заберите свой <em>велосипед</em> уже сегодня</h2>
+      <p>Заполните форму - менеджер перезвонит, расскажет о наличии, ценах и рассрочке, поможет выбрать модель под ваш рост.</p>
+      <ul class="cta-benefits">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Перезвоним в течение 15 минут</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Подберем размер и цвет</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Расскажем про рассрочку и доставку</li>
+      </ul>
+    </div>
+    <div class="lead-card reveal">
+      <form id="leadFormMain" novalidate>
+        <h3>Оставьте заявку</h3>
+        <p class="sub">Это бесплатно и ни к чему не обязывает.</p>
+        <div class="field">
+          <label for="nm">Ваше имя</label>
+          <input id="nm" name="name" type="text" placeholder="Например, Дана" required>
+        </div>
+        <div class="field">
+          <label for="pm">Телефон</label>
+          <input id="pm" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required>
+        </div>
+        <div class="field">
+          <label for="mm">Интересует модель</label>
+          <select id="mm" name="model">
+            <option>Помогите выбрать</option>
+            <option>ASEKA складной 180</option>
+            <option>ASEKA горный (хардтейл)</option>
+            <option>IBARS премиум</option>
+            <option>Модель без скоростей</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Получить консультацию</button>
+        <p class="lead-note">Нажимая кнопку, вы соглашаетесь на обработку данных.</p>
+      </form>
+      <div class="form-ok" id="okMain">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Спасибо, заявка принята!</h3>
+        <p class="sub">Мы открыли чат в WhatsApp. Скоро свяжемся с вами.</p>
+        <a class="btn btn-dark btn-block" href="tel:+77710375842">Позвонить сейчас</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contacts">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0B3D2E"/><g fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="42" r="10"/><circle cx="46" cy="42" r="10"/><path d="M18 42 L30 24 L44 24"/><path d="M30 24 L37 42 L46 42"/></g><path d="M40 20h8l-3 5h-8z" fill="#84CC16"/></svg>
+        <span>VELO<small>ASEKA / IBARS</small></span>
+      </a>
+      <p>Горные и складные велосипеды ASEKA и IBARS. Доставка по всему Казахстану, рассрочка Kaspi. Твой маршрут - твои правила.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Контакты</h4>
+      <a class="foot-phone" href="tel:+77710375842">+7 771 037 58 42</a>
+      <a href="https://wa.me/77710375842" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <div>Ежедневно, 10:00 - 20:00</div>
+    </div>
+    <div class="foot-col">
+      <h4>Разделы</h4>
+      <a href="#catalog">Модели в наличии</a>
+      <a href="#why">Почему VELO</a>
+      <a href="#pay">Оплата и доставка</a>
+      <a href="#zayavka">Оставить заявку</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; 2026 VELO. Велосипеды ASEKA и IBARS.</span>
+    <span>Доставка по Казахстану. Рассрочка Kaspi Red / Kaspi Kredit.</span>
+  </div>
+</footer>
+
+<!-- ===== STICKY MOBILE BAR ===== -->
+<div class="mobar">
+  <a class="btn btn-dark" href="tel:+77710375842">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Позвонить
+  </a>
+  <a class="btn btn-wa" href="https://wa.me/77710375842" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.31-1.96 1.35-.5.05-1.13.27-3.8-.79-3.19-1.29-5.23-4.53-5.39-4.74-.16-.21-1.29-1.71-1.29-3.27 0-1.55.81-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42 0 .6.01.19.01.45-.07.7.54.24.6.82 2.08.89 2.23.07.15.12.32.02.53-.1.21-.15.32-.29.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.61.17.29.76 1.25 1.63 2.02 1.12 1 2.07 1.31 2.36 1.46.29.15.46.12.63-.07.17-.19.73-.85.92-1.14.19-.29.39-.24.65-.15.26.1 1.66.78 1.95.93.29.15.48.22.55.34.07.13.07.72-.17 1.4z"/></svg>
+    WhatsApp
+  </a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var PHONE = "77710375842";
+
+  /* ---- Catalog data (real product photos) ---- */
+  var bikes = [
+    {img:"cat-fold-white.jpg", badge:"fold", badgeText:"Складной 180", name:"ASEKA 180 белый", specs:["Складная рама","Магниевые диски","21 скорость","Амортизация"]},
+    {img:"cat-fold-black.jpg", badge:"fold", badgeText:"Складной 180", name:"ASEKA 180 черный", specs:["Складная рама","Магниевые диски","21 скорость","Двойной аморт."]},
+    {img:"cat-green-black.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA черно-зеленый", specs:["Стальная рама","Диск. тормоза","21 скорость","Колеса 24\""]},
+    {img:"cat-blue.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA синий градиент", specs:["Алюм. рама","Диск. тормоза","21 скорость","Колеса 26\""]},
+    {img:"cat-black.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA черный", specs:["Прочная рама","Диск. тормоза","21 скорость","Колеса 29\""]},
+    {img:"cat-red.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA серо-красный", specs:["Алюм. рама","Диск. тормоза","21 скорость","Амортизация"]},
+    {img:"cat-blue-yellow.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA сине-желтый", specs:["Стальная рама","Диск. тормоза","21 скорость","Колеса 29\""]},
+    {img:"cat-gray.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA графит", specs:["Алюм. рама","Диск. тормоза","21 скорость","Амортизация"]},
+    {img:"cat-white.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA белый спорт", specs:["Стальная рама","Диск. тормоза","21 скорость","Колеса 27.5\""]},
+    {img:"cat-red-gray.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA красно-серый", specs:["Алюм. рама","Диск. тормоза","21 скорость","Колеса 29\""]},
+    {img:"cat-gray-out.jpg", badge:"aseka", badgeText:"ASEKA", name:"ASEKA серый MTB", specs:["Прочная рама","Диск. тормоза","21 скорость","Внедорожные шины"]},
+    {img:"cat-ibars-purple.jpg", badge:"ibars", badgeText:"IBARS", name:"IBARS фиолетовый", specs:["Алюм. рама","Цветные обода","Диск. тормоза","Премиум"]},
+    {img:"cat-ibars-purple2.jpg", badge:"ibars", badgeText:"IBARS", name:"IBARS черно-пурпурный", specs:["Алюм. рама","Цветные обода","Амортизация","Премиум"]},
+    {img:"cat-red-ss.jpg", badge:"aseka", badgeText:"Без скоростей", name:"ASEKA черно-красный", specs:["Стальная рама","Без скоростей","Простота","Цветные спицы"]}
+  ];
+
+  var badgeClass = {aseka:"badge aseka", ibars:"badge ibars", fold:"badge fold"};
+  var grid = document.getElementById("catGrid");
+  var html = "";
+  for(var i=0;i<bikes.length;i++){
+    var b = bikes[i];
+    var chips = "";
+    for(var j=0;j<b.specs.length;j++){ chips += "<li>"+b.specs[j]+"</li>"; }
+    html +=
+      '<article class="bike">'+
+        '<div class="bike-img"><span class="'+badgeClass[b.badge]+'">'+b.badgeText+'</span>'+
+          '<img src="img/'+b.img+'" alt="'+b.name+'" loading="lazy"></div>'+
+        '<div class="bike-body"><h3>'+b.name+'</h3>'+
+          '<ul class="specs">'+chips+'</ul>'+
+          '<div class="bike-price"><span class="p">Цена по запросу</span>'+
+          '<button class="btn btn-primary js-order" data-model="'+b.name+'">Узнать цену</button></div>'+
+        '</div>'+
+      '</article>';
+  }
+  grid.innerHTML = html;
+
+  /* ---- Order buttons scroll to form and preselect ---- */
+  document.addEventListener("click", function(e){
+    var t = e.target.closest ? e.target.closest(".js-order") : null;
+    if(!t) return;
+    var model = t.getAttribute("data-model");
+    var nameField = document.getElementById("nm");
+    var sel = document.getElementById("mm");
+    if(sel){
+      var matched = false;
+      for(var k=0;k<sel.options.length;k++){
+        if(model.indexOf("IBARS")>-1 && sel.options[k].text.indexOf("IBARS")>-1){sel.selectedIndex=k;matched=true;break;}
+        if(model.indexOf("180")>-1 && sel.options[k].text.indexOf("180")>-1){sel.selectedIndex=k;matched=true;break;}
+        if(model.indexOf("без")>-1 && sel.options[k].text.indexOf("без")>-1){sel.selectedIndex=k;matched=true;break;}
+      }
+      if(!matched){ for(var m=0;m<sel.options.length;m++){ if(sel.options[m].text.indexOf("горный")>-1){sel.selectedIndex=m;break;} } }
+    }
+    document.getElementById("zayavka").scrollIntoView({behavior:"smooth"});
+    setTimeout(function(){ if(nameField) nameField.focus(); }, 500);
+  });
+
+  /* ---- Lead form -> WhatsApp + thank you ---- */
+  function handleForm(formId, okId){
+    var form = document.getElementById(formId);
+    if(!form) return;
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var name = (form.querySelector('[name="name"]').value || "").trim();
+      var phone = (form.querySelector('[name="phone"]').value || "").trim();
+      var model = form.querySelector('[name="model"]') ? form.querySelector('[name="model"]').value : "";
+      if(name.length < 2){ form.querySelector('[name="name"]').focus(); return; }
+      if(phone.replace(/\D/g,"").length < 10){ form.querySelector('[name="phone"]').focus(); return; }
+
+      var text = "Здравствуйте! Заявка с сайта VELO.%0A"+
+                 "Имя: "+encodeURIComponent(name)+"%0A"+
+                 "Телефон: "+encodeURIComponent(phone)+"%0A"+
+                 "Модель: "+encodeURIComponent(model);
+      var url = "https://wa.me/"+PHONE+"?text="+text;
+      window.open(url, "_blank");
+
+      form.style.display = "none";
+      document.getElementById(okId).classList.add("show");
+    });
+  }
+  handleForm("leadFormTop","okTop");
+  handleForm("leadFormMain","okMain");
+
+  /* ---- Mobile drawer ---- */
+  var drawer = document.getElementById("drawer");
+  document.getElementById("burger").addEventListener("click", function(){ drawer.classList.add("open"); });
+  document.getElementById("drawerClose").addEventListener("click", function(){ drawer.classList.remove("open"); });
+  drawer.addEventListener("click", function(e){ if(e.target === drawer) drawer.classList.remove("open"); });
+  var closers = drawer.querySelectorAll("[data-close]");
+  for(var c=0;c<closers.length;c++){ closers[c].addEventListener("click", function(){ drawer.classList.remove("open"); }); }
+
+  /* ---- Reveal on scroll ---- */
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+})();
+</script>
+</body>
+</html>
