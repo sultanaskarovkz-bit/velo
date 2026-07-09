@@ -166,8 +166,6 @@
   .bp-tag{fill:rgba(167,240,74,.85);font-family:'JetBrains Mono',monospace;font-size:9px;opacity:0;transition:opacity .6s ease}
   .bp.rolling .bp-tag{opacity:1}
 
-  /* sketch: faint texture BEHIND the text column, never over the bike */
-  .bp-sketch{position:absolute;left:-4%;bottom:0;width:190px;opacity:.07;pointer-events:none;filter:invert(1);z-index:1}
 
   /* Ride band */
   .ride-band{background:linear-gradient(115deg,#08301f,var(--pine) 55%,var(--pine-2));color:#fff;overflow:hidden;position:relative}
@@ -180,7 +178,7 @@
   .ride-figure{width:min(320px,36%);flex:0 0 auto;filter:drop-shadow(0 22px 30px rgba(0,0,0,.45))}
 
   /* Catalog */
-  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:start}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:stretch}
   .bike{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
   .bike:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
   .bike-img{position:relative;overflow:hidden;background:#fff;line-height:0}
@@ -199,14 +197,6 @@
   .bike-price .p small{display:block;font-family:'Manrope';font-weight:600;font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
   .bike-price .p.ask{font-size:.92rem;color:var(--muted);text-transform:uppercase}
   .bike .btn{padding:.7rem 1rem;font-size:.85rem}
-
-  /* Promo cards: always shown whole, never cropped */
-  .cards-sec{background:var(--bg)}
-  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;align-items:start}
-  .promo-card{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;margin:0;
-    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
-  .promo-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .promo-card img{width:100%;height:auto;display:block}
 
   /* IBARS band */
   .band{position:relative;color:#fff;overflow:hidden}
@@ -265,7 +255,7 @@
   .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2.4rem;padding-top:1.4rem;font-size:.82rem;color:rgba(255,255,255,.5);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
   /* Mobile bar */
-  .mobar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;background:#fff;border-top:1px solid var(--line);padding:.55rem .7rem;gap:.55rem;box-shadow:0 -8px 24px -14px rgba(11,61,46,.4)}
+  .mobar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;background:#fff;border-top:1px solid var(--line);gap:.55rem;box-shadow:0 -8px 24px -14px rgba(11,61,46,.4);padding:.55rem .7rem calc(.55rem + env(safe-area-inset-bottom))}
   .mobar .btn{flex:1;padding:.85rem;font-size:.92rem}
   .btn-wa{background:#25D366;color:#fff}
 
@@ -286,13 +276,12 @@
   /* ===== Responsive ===== */
   @media(max-width:980px){
     .bp-grid{grid-template-columns:1fr;gap:2rem;padding:3.2rem 0}
-    .bp-sketch{display:none}
   }
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:1.4rem;padding:2rem 0 2.4rem}
     .band-grid,.pay-grid,.cta-grid{grid-template-columns:1fr;gap:1.8rem}
     .feat-grid{grid-template-columns:repeat(2,1fr)}
-    .cat-grid,.cards-grid{grid-template-columns:repeat(2,1fr)}
+    .cat-grid{grid-template-columns:repeat(2,1fr)}
     .gallery{grid-template-columns:repeat(3,1fr)}
     .nav-links,.nav-phone{display:none}
     .burger{display:flex;align-items:center;justify-content:center;margin-left:auto}
@@ -347,14 +336,14 @@
     .bp-copy p{font-size:.95rem}
     .bp-specs li{font-size:.76rem}
 
-    .cat-grid,.cards-grid{grid-template-columns:repeat(2,1fr);gap:.7rem}
-    .bike-body{padding:.7rem .75rem .85rem}
-    .bike-body h3{font-size:.98rem;margin-bottom:.4rem}
-    .specs{gap:.28rem;margin-bottom:.6rem}
-    .specs li{font-size:.66rem;padding:.18rem .4rem}
-    .bike-price{flex-direction:column;align-items:stretch;gap:.45rem}
-    .bike-price .p{font-size:1rem}
-    .bike .btn{width:100%;padding:.6rem;font-size:.8rem}
+    .cat-grid{grid-template-columns:1fr;gap:.9rem}
+    .bike-body{padding:.95rem 1rem 1.05rem}
+    .bike-body h3{font-size:1.12rem;margin-bottom:.5rem}
+    .specs{gap:.32rem;margin-bottom:.75rem}
+    .specs li{font-size:.7rem;padding:.2rem .45rem}
+    .bike-price{flex-direction:row;align-items:center;gap:.6rem}
+    .bike-price .p{font-size:1.05rem}
+    .bike .btn{width:auto;padding:.7rem 1rem;font-size:.82rem}
     .badge{font-size:.6rem;padding:.24rem .5rem;top:.5rem;left:.5rem}
     .cards-head h3{font-size:1.3rem}
 
@@ -380,9 +369,17 @@
     .cta-benefits li{font-size:.9rem}
     .foot-phone{font-size:1.3rem}
     .ticker-track{font-size:.85rem;gap:1.8rem;padding:.7rem 0}
+    .bp-svg{overflow:hidden}
+    .bp-stage{margin-top:.4rem}
+    .band-media{border-radius:14px}
+    .gallery a{border-radius:12px}
+    .gallery .cap{font-size:.7rem;padding:.6rem}
+    .bike{border-radius:16px}
+    .lead-card{margin-inline:0}
+    .hero-cta .btn{justify-content:center}
   }
   @media(max-width:360px){
-    .cat-grid,.cards-grid{grid-template-columns:1fr}
+    .cat-grid{grid-template-columns:1fr}
     .pay-cards{grid-template-columns:1fr}
     .hero h1{font-size:1.75rem}
   }
@@ -885,15 +882,18 @@
   /* ===== Catalog data ===== */
   var ASEKA_MIN=49000, IBARS_MIN=94000;
   var bikes=[
-    {img:"card-aseka-legend2.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend",s:["Стальная рама","21 скорость","Полная комплектация","20-29\""]},kk:{n:"ASEKA Legend",s:["Болат жақтау","21 жылдамдық","Толық жинақ","20-29\""]}},
-    {img:"card-aseka-legend.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend черный",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA Legend қара",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}},
-    {img:"card-aseka-rhythm.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA в твоем ритме",s:["Сталь / алюминий","21 скорость","Амортизация","20-29\""]},kk:{n:"ASEKA сенің ырғағыңда",s:["Болат / алюминий","21 жылдамдық","Амортизация","20-29\""]}},
-    {img:"card-aseka-white.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA белый",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA ақ",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}},
-    {img:"card-aseka-green.jpg",b:"ss",price:null,ru:{n:"ASEKA без скоростей",s:["Стальная рама","1 скорость","Простота и надежность","22-26\""]},kk:{n:"ASEKA жылдамдықсыз",s:["Болат жақтау","1 жылдамдық","Қарапайым және сенімді","22-26\""]}},
-    {img:"card-ibars-premium.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS премиум",s:["Алюм. рама","Двойные диск. тормоза","Амортизация","26-29\""]},kk:{n:"IBARS премиум",s:["Алюм. жақтау","Қос дискілі тежегіш","Амортизация","26-29\""]}},
-    {img:"card-ibars-alu.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS Aluminium",s:["Алюм. рама","Амортизация","Цветные обода","26-29\""]},kk:{n:"IBARS Aluminium",s:["Алюм. жақтау","Амортизация","Түрлі құрсау","26-29\""]}},
+    /* row 1: square-ish banners (ratio ~1.00-1.03) */
+    {img:"card-fold-white.jpg",b:"fold",price:null,ru:{n:"Складной 180 белый",s:["Складная рама","Магниевые диски","21 скорость","26\""]},kk:{n:"Бүктелмелі 180 ақ",s:["Бүктелмелі жақтау","Магний дискілері","21 жылдамдық","26\""]}},
     {img:"card-ibars-fold.jpg",b:"fold",price:null,ru:{n:"IBARS складной",s:["Складная рама","21 скорость","Литые диски","26\""]},kk:{n:"IBARS бүктелмелі",s:["Бүктелмелі жақтау","21 жылдамдық","Құйма диск","26\""]}},
-    {img:"card-fold-white.jpg",b:"fold",price:null,ru:{n:"Складной 180 белый",s:["Складная рама","Магниевые диски","21 скорость","26\""]},kk:{n:"Бүктелмелі 180 ақ",s:["Бүктелмелі жақтау","Магний дискілері","21 жылдамдық","26\""]}}
+    {img:"card-aseka-legend.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend черный",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA Legend қара",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}},
+    /* row 2: ratio ~1.13-1.25 */
+    {img:"card-ibars-premium.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS премиум",s:["Алюм. рама","Двойные диск. тормоза","Амортизация","26-29\""]},kk:{n:"IBARS премиум",s:["Алюм. жақтау","Қос дискілі тежегіш","Амортизация","26-29\""]}},
+    {img:"card-aseka-legend2.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend",s:["Стальная рама","21 скорость","Полная комплектация","20-29\""]},kk:{n:"ASEKA Legend",s:["Болат жақтау","21 жылдамдық","Толық жинақ","20-29\""]}},
+    {img:"card-aseka-rhythm.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA в твоем ритме",s:["Сталь / алюминий","21 скорость","Амортизация","20-29\""]},kk:{n:"ASEKA сенің ырғағыңда",s:["Болат / алюминий","21 жылдамдық","Амортизация","20-29\""]}},
+    /* row 3: wide banners (ratio ~1.27-1.56) */
+    {img:"card-aseka-green.jpg",b:"ss",price:null,ru:{n:"ASEKA без скоростей",s:["Стальная рама","1 скорость","Простота и надежность","22-26\""]},kk:{n:"ASEKA жылдамдықсыз",s:["Болат жақтау","1 жылдамдық","Қарапайым және сенімді","22-26\""]}},
+    {img:"card-ibars-alu.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS Aluminium",s:["Алюм. рама","Амортизация","Цветные обода","26-29\""]},kk:{n:"IBARS Aluminium",s:["Алюм. жақтау","Амортизация","Түрлі құрсау","26-29\""]}},
+    {img:"card-aseka-white.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA белый",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA ақ",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}}
   ];
   var BADGE={aseka:["badge aseka","ASEKA","ASEKA"],ibars:["badge ibars","IBARS","IBARS"],
              fold:["badge fold","Складной 180","Бүктелмелі 180"],ss:["badge aseka","Без скоростей","Жылдамдықсыз"]};
