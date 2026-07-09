@@ -141,22 +141,33 @@
     background-image:linear-gradient(rgba(132,204,22,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(132,204,22,.09) 1px,transparent 1px);
     background-size:44px 44px;mask-image:radial-gradient(circle at 50% 45%,#000 40%,transparent 78%)}
   .bp-grid{position:relative;z-index:2;display:grid;grid-template-columns:.85fr 1.15fr;gap:2.6rem;align-items:center;padding:4.4rem 0}
+  .bp-copy{position:relative;z-index:3}
   .bp-copy h2{font-size:clamp(1.9rem,4.4vw,3rem);color:#fff;margin:.8rem 0 .9rem}
   .bp-copy h2 em{color:var(--lime-l);font-style:italic}
   .bp-copy p{color:rgba(255,255,255,.75);font-size:1.02rem;margin-bottom:1.5rem;max-width:40ch}
   .bp-specs{display:grid;gap:.55rem;margin-bottom:1.6rem}
   .bp-specs li{list-style:none;display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dashed rgba(255,255,255,.16);padding-bottom:.5rem;font-family:'JetBrains Mono',monospace;font-size:.84rem;color:rgba(255,255,255,.7)}
   .bp-specs li b{color:var(--lime-l);font-weight:500}
-  .bp-stage{position:relative}
-  .bp-svg{width:100%;height:auto;color:var(--lime-l);overflow:visible}
-  .bp-p{stroke:currentColor;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;
-    stroke-dasharray:var(--len);stroke-dashoffset:var(--len);}
-  .bp.drawn .bp-p{animation:draw 1.5s cubic-bezier(.6,.05,.2,1) forwards;animation-delay:var(--d)}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  .bp-spokes{stroke:rgba(167,240,74,.42);stroke-width:1.2;transform-box:fill-box;transform-origin:center}
-  .bp-tag{fill:rgba(167,240,74,.8);font-family:'JetBrains Mono',monospace;font-size:9px;opacity:0;transition:opacity .5s}
-  .bp.drawn .bp-tag{opacity:1;transition-delay:1.6s}
-  .bp-sketch{position:absolute;right:-6%;bottom:-6%;width:150px;opacity:.14;pointer-events:none;filter:invert(1)}
+
+  .bp-stage{position:relative;z-index:2}
+  .bp-svg{width:100%;height:auto;color:var(--lime-l);overflow:visible;
+    filter:drop-shadow(0 0 14px rgba(167,240,74,.16))}
+  .bp-p{stroke:currentColor;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+  .bp-road{stroke:rgba(167,240,74,.35);stroke-width:1.6;stroke-linecap:round;fill:none;stroke-dasharray:14 10}
+
+  /* wheels: hidden until drawn, then roll */
+  .bp-spokes{stroke:rgba(167,240,74,.40);stroke-width:1.2;transform-box:fill-box;transform-origin:center;
+    opacity:0;transition:opacity .7s ease}
+  .bp.rolling .bp-spokes{opacity:1}
+  .bp-bike{transform-box:fill-box;transform-origin:center}
+  .bp.rolling .bp-bike{animation:bob 2.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
+  .bp-tag{fill:rgba(167,240,74,.85);font-family:'JetBrains Mono',monospace;font-size:9px;opacity:0;transition:opacity .6s ease}
+  .bp.rolling .bp-tag{opacity:1}
+
+  /* sketch: faint texture BEHIND the text column, never over the bike */
+  .bp-sketch{position:absolute;left:-4%;bottom:0;width:190px;opacity:.07;pointer-events:none;filter:invert(1);z-index:1}
 
   /* Ride band */
   .ride-band{background:linear-gradient(115deg,#08301f,var(--pine) 55%,var(--pine-2));color:#fff;overflow:hidden;position:relative}
@@ -169,12 +180,12 @@
   .ride-figure{width:min(320px,36%);flex:0 0 auto;filter:drop-shadow(0 22px 30px rgba(0,0,0,.45))}
 
   /* Catalog */
-  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:start}
   .bike{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
   .bike:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .bike-img{position:relative;aspect-ratio:4/3;background:#eef4ee;overflow:hidden}
-  .bike-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-  .bike:hover .bike-img img{transform:scale(1.06)}
+  .bike-img{position:relative;overflow:hidden;background:#fff;line-height:0}
+  .bike-img img{width:100%;height:auto;display:block;object-fit:contain;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .bike:hover .bike-img img{transform:scale(1.03)}
   .badge{position:absolute;top:.8rem;left:.8rem;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:.72rem;letter-spacing:.08em;padding:.32rem .7rem;border-radius:7px;color:#fff}
   .badge.aseka{background:var(--pine)}
   .badge.ibars{background:linear-gradient(135deg,#5b2a86,#7c3aed)}
@@ -189,14 +200,13 @@
   .bike-price .p.ask{font-size:.92rem;color:var(--muted);text-transform:uppercase}
   .bike .btn{padding:.7rem 1rem;font-size:.85rem}
 
-  /* Promo cards strip */
-  .cards-head{margin:3.4rem 0 1.4rem;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-  .cards-head h3{font-size:1.6rem;color:var(--pine)}
-  .cards-head p{color:var(--muted);font-size:.95rem}
-  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-  .promo-card{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;position:relative;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
+  /* Promo cards: always shown whole, never cropped */
+  .cards-sec{background:var(--bg)}
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;align-items:start}
+  .promo-card{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;margin:0;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
   .promo-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .promo-card img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+  .promo-card img{width:100%;height:auto;display:block}
 
   /* IBARS band */
   .band{position:relative;color:#fff;overflow:hidden}
@@ -215,13 +225,11 @@
   .band-price span{color:#c79bff}
 
   /* Gallery */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem}
-  .gallery a{border-radius:14px;overflow:hidden;position:relative;display:block}
-  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .gallery a{border-radius:14px;overflow:hidden;position:relative;display:block;aspect-ratio:4/3;background:#eef4ee}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
   .gallery a:hover img{transform:scale(1.07)}
-  .gallery .big{grid-column:span 2;grid-row:span 2}
-  .gallery .tall{grid-row:span 2}
-  .gallery .cap{position:absolute;left:0;bottom:0;right:0;padding:1rem;background:linear-gradient(transparent,rgba(11,61,46,.85));color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.05em;font-size:.9rem}
+  .gallery .cap{position:absolute;left:0;bottom:0;right:0;padding:.9rem;background:linear-gradient(transparent,rgba(11,61,46,.88));color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.05em;font-size:.82rem}
 
   /* Payment */
   .pay{background:#fff}
@@ -285,8 +293,7 @@
     .band-grid,.pay-grid,.cta-grid{grid-template-columns:1fr;gap:1.8rem}
     .feat-grid{grid-template-columns:repeat(2,1fr)}
     .cat-grid,.cards-grid{grid-template-columns:repeat(2,1fr)}
-    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
-    .gallery .big{grid-column:span 2}
+    .gallery{grid-template-columns:repeat(3,1fr)}
     .nav-links,.nav-phone{display:none}
     .burger{display:flex;align-items:center;justify-content:center;margin-left:auto}
     .nav .btn.head-cta{display:none}
@@ -366,9 +373,7 @@
     .pay-card b{font-size:.9rem}
     .pay-card span{font-size:.72rem}
 
-    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;gap:.6rem}
-    .gallery .big{grid-column:span 2;grid-row:span 1}
-    .gallery .tall{grid-row:span 1}
+    .gallery{grid-template-columns:repeat(2,1fr);gap:.6rem}
 
     .cta-grid h2{font-size:1.8rem}
     .cta-grid p{font-size:.95rem}
@@ -496,6 +501,91 @@
   <div class="ticker-track" id="ticker"></div>
 </div>
 
+<!-- BLUEPRINT (signature) -->
+<section class="bp" id="bp">
+  <div class="wrap bp-grid">
+    <div class="bp-copy reveal">
+      <span class="eyebrow light" data-i18n="bp_eyebrow">Инженерия VELO</span>
+      <h2><span data-i18n="bp_h2a">Каждая деталь</span> <em data-i18n="bp_h2b">просчитана</em></h2>
+      <p data-i18n="bp_p">От геометрии рамы до хода вилки. Мы собираем велосипеды так, чтобы они держали удар и служили годами.</p>
+      <ul class="bp-specs">
+        <li><span data-i18n="sp1">Рама</span><b data-i18n="sp1v">Сталь / алюминий</b></li>
+        <li><span data-i18n="sp2">Трансмиссия</span><b>Shimano, 21</b></li>
+        <li><span data-i18n="sp3">Тормоза</span><b data-i18n="sp3v">Двойные дисковые</b></li>
+        <li><span data-i18n="sp4">Вилка</span><b data-i18n="sp4v">Амортизационная</b></li>
+        <li><span data-i18n="sp5">Колеса</span><b>20 - 29"</b></li>
+      </ul>
+      <a class="btn btn-lime" href="#catalog" data-i18n="btn_models">Смотреть модели</a>
+    </div>
+    <div class="bp-stage reveal">
+      <svg class="bp-svg" viewBox="0 0 460 262" role="img" aria-label="Чертеж велосипеда">
+        <!-- spokes appear after the drawing, then roll -->
+        <g class="bp-spokes" id="spokeA">
+          <line x1="95" y1="113" x2="95" y2="237"/><line x1="33" y1="175" x2="157" y2="175"/>
+          <line x1="51" y1="131" x2="139" y2="219"/><line x1="139" y1="131" x2="51" y2="219"/>
+          <line x1="70" y1="118" x2="120" y2="232"/><line x1="120" y1="118" x2="70" y2="232"/>
+        </g>
+        <g class="bp-spokes" id="spokeB">
+          <line x1="355" y1="113" x2="355" y2="237"/><line x1="293" y1="175" x2="417" y2="175"/>
+          <line x1="311" y1="131" x2="399" y2="219"/><line x1="399" y1="131" x2="311" y2="219"/>
+          <line x1="330" y1="118" x2="380" y2="232"/><line x1="380" y1="118" x2="330" y2="232"/>
+        </g>
+        <!-- drawn in pen order: wheels -> hubs -> frame -> fork -> bars -> drivetrain -->
+        <g class="bp-bike">
+          <circle class="bp-p" cx="95"  cy="175" r="62"/>
+          <circle class="bp-p" cx="355" cy="175" r="62"/>
+          <circle class="bp-p" cx="95"  cy="175" r="7"/>
+          <circle class="bp-p" cx="355" cy="175" r="7"/>
+          <path class="bp-p" d="M95 175 L215 175"/>
+          <path class="bp-p" d="M215 175 L175 88"/>
+          <path class="bp-p" d="M175 88 L95 175"/>
+          <path class="bp-p" d="M175 88 L300 85"/>
+          <path class="bp-p" d="M215 175 L312 118"/>
+          <path class="bp-p" d="M300 85 L312 118"/>
+          <path class="bp-p" d="M312 118 L355 175"/>
+          <path class="bp-p" d="M175 88 L172 78"/>
+          <path class="bp-p" d="M156 76 L196 74"/>
+          <path class="bp-p" d="M300 85 L300 68"/>
+          <path class="bp-p" d="M276 62 L326 72"/>
+          <circle class="bp-p" cx="215" cy="175" r="15"/>
+          <path class="bp-p" d="M215 175 L242 196"/>
+          <path class="bp-p" d="M110 170 L204 168"/>
+        </g>
+        <path class="bp-road bp-p" d="M10 245 L450 245"/>
+        <text class="bp-tag" x="18" y="104">26"</text>
+        <text class="bp-tag" x="392" y="104">DISC</text>
+        <text class="bp-tag" x="192" y="214">21 SPD</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- RIDE BAND -->
+<section class="ride-band">
+  <div class="wrap ride-inner">
+    <div class="ride-text reveal">
+      <span class="eyebrow light" data-i18n="ride_eyebrow">Для города, трассы и приключений</span>
+      <h2><span data-i18n="ride_h2a">Готов покорять</span> <em data-i18n="ride_h2b">любой маршрут</em></h2>
+      <p data-i18n="ride_p">Оставьте заявку - подберем велосипед под ваш рост и стиль езды, расскажем про наличие и рассрочку.</p>
+      <a class="btn btn-lime" href="#zayavka" data-i18n="ride_btn">Подобрать велосипед</a>
+    </div>
+    <img class="ride-figure reveal" src="img/cutout-manbike.png" alt="Велосипедист" loading="lazy">
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="sec" id="catalog" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="cat_eyebrow">Модели в наличии</span>
+      <h2 data-i18n="cat_h2">Выбери свой велосипед</h2>
+      <p data-i18n="cat_p">Реальные фото со склада. ASEKA от 49 000 тг, IBARS от 94 000 тг. Наличие цветов и размеров уточняйте у менеджера.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+
 <!-- WHY -->
 <section class="sec" id="why">
   <div class="wrap why-wrap">
@@ -538,105 +628,6 @@
   </div>
 </section>
 
-<!-- BLUEPRINT (signature) -->
-<section class="bp" id="bp">
-  <div class="wrap bp-grid">
-    <div class="bp-copy reveal">
-      <span class="eyebrow light" data-i18n="bp_eyebrow">Инженерия VELO</span>
-      <h2><span data-i18n="bp_h2a">Каждая деталь</span> <em data-i18n="bp_h2b">просчитана</em></h2>
-      <p data-i18n="bp_p">От геометрии рамы до хода вилки. Мы собираем велосипеды так, чтобы они держали удар и служили годами.</p>
-      <ul class="bp-specs">
-        <li><span data-i18n="sp1">Рама</span><b data-i18n="sp1v">Сталь / алюминий</b></li>
-        <li><span data-i18n="sp2">Трансмиссия</span><b>Shimano, 21</b></li>
-        <li><span data-i18n="sp3">Тормоза</span><b data-i18n="sp3v">Двойные дисковые</b></li>
-        <li><span data-i18n="sp4">Вилка</span><b data-i18n="sp4v">Амортизационная</b></li>
-        <li><span data-i18n="sp5">Колеса</span><b>20 - 29"</b></li>
-      </ul>
-      <a class="btn btn-lime" href="#catalog" data-i18n="btn_models">Смотреть модели</a>
-    </div>
-    <div class="bp-stage reveal">
-      <svg class="bp-svg" viewBox="0 0 460 250" role="img" aria-label="Чертеж велосипеда">
-        <!-- spokes (rotate on scroll) -->
-        <g class="bp-spokes" id="spokeA">
-          <line x1="95" y1="113" x2="95" y2="237"/><line x1="33" y1="175" x2="157" y2="175"/>
-          <line x1="51" y1="131" x2="139" y2="219"/><line x1="139" y1="131" x2="51" y2="219"/>
-        </g>
-        <g class="bp-spokes" id="spokeB">
-          <line x1="355" y1="113" x2="355" y2="237"/><line x1="293" y1="175" x2="417" y2="175"/>
-          <line x1="311" y1="131" x2="399" y2="219"/><line x1="399" y1="131" x2="311" y2="219"/>
-        </g>
-        <g>
-          <circle class="bp-p" cx="95" cy="175" r="62"/>
-          <circle class="bp-p" cx="355" cy="175" r="62"/>
-          <circle class="bp-p" cx="95" cy="175" r="7"/>
-          <circle class="bp-p" cx="355" cy="175" r="7"/>
-          <path class="bp-p" d="M215 175 L175 88"/>
-          <path class="bp-p" d="M175 88 L300 85"/>
-          <path class="bp-p" d="M215 175 L312 118"/>
-          <path class="bp-p" d="M215 175 L95 175"/>
-          <path class="bp-p" d="M175 88 L95 175"/>
-          <path class="bp-p" d="M300 85 L312 118"/>
-          <path class="bp-p" d="M312 118 L355 175"/>
-          <path class="bp-p" d="M172 78 L175 88"/>
-          <path class="bp-p" d="M156 76 L196 74"/>
-          <path class="bp-p" d="M300 85 L300 68"/>
-          <path class="bp-p" d="M276 62 L326 72"/>
-          <circle class="bp-p" cx="215" cy="175" r="15"/>
-          <path class="bp-p" d="M215 175 L242 196"/>
-          <path class="bp-p" d="M110 170 L204 168"/>
-        </g>
-        <text class="bp-tag" x="20" y="105">26"</text>
-        <text class="bp-tag" x="392" y="105">DISC</text>
-        <text class="bp-tag" x="196" y="212">21 SPD</text>
-      </svg>
-      <img class="bp-sketch" src="img/cutout-sketch.png" alt="" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- RIDE BAND -->
-<section class="ride-band">
-  <div class="wrap ride-inner">
-    <div class="ride-text reveal">
-      <span class="eyebrow light" data-i18n="ride_eyebrow">Для города, трассы и приключений</span>
-      <h2><span data-i18n="ride_h2a">Готов покорять</span> <em data-i18n="ride_h2b">любой маршрут</em></h2>
-      <p data-i18n="ride_p">Оставьте заявку - подберем велосипед под ваш рост и стиль езды, расскажем про наличие и рассрочку.</p>
-      <a class="btn btn-lime" href="#zayavka" data-i18n="ride_btn">Подобрать велосипед</a>
-    </div>
-    <img class="ride-figure reveal" src="img/cutout-manbike.png" alt="Велосипедист" loading="lazy">
-  </div>
-</section>
-
-<!-- CATALOG -->
-<section class="sec" id="catalog" style="background:#fff">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-i18n="cat_eyebrow">Модели в наличии</span>
-      <h2 data-i18n="cat_h2">Выбери свой велосипед</h2>
-      <p data-i18n="cat_p">Реальные фото со склада. ASEKA от 49 000 тг, IBARS от 94 000 тг. Наличие цветов и размеров уточняйте у менеджера.</p>
-    </div>
-    <div class="cat-grid" id="catGrid"></div>
-
-    <div class="cards-head reveal">
-      <div>
-        <h3 data-i18n="cards_h3">Карточки моделей</h3>
-        <p data-i18n="cards_p">Характеристики и диаметры колес по каждой линейке.</p>
-      </div>
-    </div>
-    <div class="cards-grid">
-      <div class="promo-card reveal"><img src="img/card-aseka-legend2.jpg" alt="ASEKA Legend" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-aseka-legend.jpg" alt="ASEKA Legend" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-aseka-rhythm.jpg" alt="ASEKA" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-ibars-premium.jpg" alt="IBARS премиум" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-ibars-alu.jpg" alt="IBARS Aluminium" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-ibars-fold.jpg" alt="IBARS складной" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-aseka-white.jpg" alt="ASEKA белый" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-aseka-green.jpg" alt="ASEKA" loading="lazy"></div>
-      <div class="promo-card reveal"><img src="img/card-fold-white.jpg" alt="Складной велосипед" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
 <!-- IBARS -->
 <section class="band ibars-band">
   <div class="wrap band-grid">
@@ -665,14 +656,15 @@
       <h2 data-i18n="g_h2">Каждый узел на своем месте</h2>
       <p data-i18n="g_p">Дисковые тормоза, амортизационная вилка, надежная трансмиссия и аккуратная сборка - крупным планом.</p>
     </div>
-    <div class="gallery reveal">
-      <a class="big"><img src="img/detail-fork2.jpg" alt="Вилка и магниевый диск" loading="lazy"><span class="cap" data-i18n="cap1">Магниевые диски</span></a>
-      <a class="tall"><img src="img/detail-brake.jpg" alt="Тормозная ручка" loading="lazy"><span class="cap" data-i18n="cap2">Тормоза и манетки</span></a>
-      <a><img src="img/detail-shock.jpg" alt="Амортизатор" loading="lazy"></a>
-      <a><img src="img/detail-handlebar.jpg" alt="Руль" loading="lazy"></a>
-      <a class="tall"><img src="img/detail-front.jpg" alt="Передний тормоз" loading="lazy"><span class="cap" data-i18n="cap3">Амортизация + диск</span></a>
-      <a><img src="img/detail-rear.jpg" alt="Трансмиссия" loading="lazy"></a>
-      <a><img src="img/ride-sunset-wheel.jpg" alt="Велосипед на закате" loading="lazy"><span class="cap" data-i18n="cap4">Твое время кататься</span></a>
+    <div class="gallery">
+      <a class="reveal"><img src="img/detail-fork2.jpg" alt="Вилка и магниевый диск" loading="lazy"><span class="cap" data-i18n="cap1">Магниевые диски</span></a>
+      <a class="reveal"><img src="img/detail-brake.jpg" alt="Тормозная ручка" loading="lazy"><span class="cap" data-i18n="cap2">Тормоза и манетки</span></a>
+      <a class="reveal"><img src="img/detail-shock.jpg" alt="Амортизатор" loading="lazy"><span class="cap" data-i18n="cap5">Амортизатор</span></a>
+      <a class="reveal"><img src="img/detail-front.jpg" alt="Передний тормоз" loading="lazy"><span class="cap" data-i18n="cap3">Амортизация + диск</span></a>
+      <a class="reveal"><img src="img/detail-handlebar.jpg" alt="Руль" loading="lazy"><span class="cap" data-i18n="cap6">Руль и манетки</span></a>
+      <a class="reveal"><img src="img/detail-rear.jpg" alt="Трансмиссия" loading="lazy"><span class="cap" data-i18n="cap7">Трансмиссия</span></a>
+      <a class="reveal"><img src="img/ride-sunset-wheel.jpg" alt="Велосипед на закате" loading="lazy"><span class="cap" data-i18n="cap4">Твое время кататься</span></a>
+      <a class="reveal"><img src="img/hero-ride-forest.jpg" alt="Поездка по лесной дороге" loading="lazy"><span class="cap" data-i18n="cap8">В движении</span></a>
     </div>
   </div>
 </section>
@@ -824,7 +816,7 @@
       ib1:"Легкая алюминиевая рама",ib2:"Двойные дисковые тормоза",ib3:"Амортизация и качественные компоненты",ib4:"Диаметры колес 26, 27.5, 29",ib_btn:"Узнать цену IBARS",
       g_eyebrow:"Внимание к деталям",g_h2:"Каждый узел на своем месте",
       g_p:"Дисковые тормоза, амортизационная вилка, надежная трансмиссия и аккуратная сборка - крупным планом.",
-      cap1:"Магниевые диски",cap2:"Тормоза и манетки",cap3:"Амортизация + диск",cap4:"Твое время кататься",
+      cap1:"Магниевые диски",cap2:"Тормоза и манетки",cap3:"Амортизация + диск",cap4:"Твое время кататься",cap5:"Амортизатор",cap6:"Руль и манетки",cap7:"Трансмиссия",cap8:"В движении",
       pay_eyebrow:"Оплата и доставка",pay_h2:"Удобно платить, быстро получить",
       pay_p:"Принимаем Kaspi и Halyk, оформляем рассрочку и кредит. Доставим велосипед в любой город Казахстана, в наличии - самовывоз.",
       p1:"Оплата по QR-коду",p2:"Покупка в рассрочку",p3:"Оформим за пару минут",p4:"Оплата картой Halyk",
@@ -874,7 +866,7 @@
       ib1:"Жеңіл алюминий жақтау",ib2:"Қос дискілі тежегіш",ib3:"Амортизация және сапалы компоненттер",ib4:"Доңғалақ диаметрі 26, 27.5, 29",ib_btn:"IBARS бағасын білу",
       g_eyebrow:"Бөлшектерге назар",g_h2:"Әр түйін өз орнында",
       g_p:"Дискілі тежегіштер, амортизациялық шанышқы, сенімді трансмиссия және ұқыпты жинақ - жақыннан.",
-      cap1:"Магний дискілері",cap2:"Тежегіш пен манеткалар",cap3:"Амортизация + диск",cap4:"Тебуге уақыт келді",
+      cap1:"Магний дискілері",cap2:"Тежегіш пен манеткалар",cap3:"Амортизация + диск",cap4:"Тебуге уақыт келді",cap5:"Амортизатор",cap6:"Руль және манеткалар",cap7:"Трансмиссия",cap8:"Қозғалыста",
       pay_eyebrow:"Төлем және жеткізу",pay_h2:"Төлеу ыңғайлы, алу жылдам",
       pay_p:"Kaspi мен Halyk қабылдаймыз, бөліп төлеу мен несие рәсімдейміз. Қазақстанның кез келген қаласына жеткіземіз.",
       p1:"QR-код арқылы төлем",p2:"Бөліп төлеп сатып алу",p3:"Бірер минутта рәсімдейміз",p4:"Halyk картасымен төлем",
@@ -893,20 +885,15 @@
   /* ===== Catalog data ===== */
   var ASEKA_MIN=49000, IBARS_MIN=94000;
   var bikes=[
-    {img:"cat-fold-black.jpg",b:"fold",price:null,ru:{n:"ASEKA 180 черный",s:["Складная рама","Магниевые диски","21 скорость","26\""]},kk:{n:"ASEKA 180 қара",s:["Бүктелмелі жақтау","Магний дискілері","21 жылдамдық","26\""]}},
-    {img:"cat-fold-white.jpg",b:"fold",price:null,ru:{n:"ASEKA 180 белый",s:["Складная рама","Магниевые диски","21 скорость","26\""]},kk:{n:"ASEKA 180 ақ",s:["Бүктелмелі жақтау","Магний дискілері","21 жылдамдық","26\""]}},
-    {img:"cat-green-black.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA черно-зеленый",s:["Стальная рама","Диск. тормоза","21 скорость","20-29\""]},kk:{n:"ASEKA қара-жасыл",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","20-29\""]}},
-    {img:"cat-blue.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA синий градиент",s:["Стальная рама","Диск. тормоза","21 скорость","20-29\""]},kk:{n:"ASEKA көк градиент",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","20-29\""]}},
-    {img:"cat-black.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA черный",s:["Прочная рама","Диск. тормоза","21 скорость","29\""]},kk:{n:"ASEKA қара",s:["Берік жақтау","Дискілі тежегіш","21 жылдамдық","29\""]}},
-    {img:"cat-red.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA серо-красный",s:["Стальная рама","Диск. тормоза","21 скорость","29\""]},kk:{n:"ASEKA сұр-қызыл",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","29\""]}},
-    {img:"cat-blue-yellow.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA сине-желтый",s:["Стальная рама","Диск. тормоза","21 скорость","29\""]},kk:{n:"ASEKA көк-сары",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","29\""]}},
-    {img:"cat-gray.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA графит",s:["Стальная рама","Диск. тормоза","21 скорость","24\""]},kk:{n:"ASEKA графит",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","24\""]}},
-    {img:"cat-white.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA белый спорт",s:["Стальная рама","Диск. тормоза","21 скорость","27.5\""]},kk:{n:"ASEKA ақ спорт",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","27.5\""]}},
-    {img:"cat-red-gray.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA красно-серый",s:["Стальная рама","Диск. тормоза","21 скорость","29\""]},kk:{n:"ASEKA қызыл-сұр",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","29\""]}},
-    {img:"cat-gray-out.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA серый MTB",s:["Стальная рама","Диск. тормоза","21 скорость","29\""]},kk:{n:"ASEKA сұр MTB",s:["Болат жақтау","Дискілі тежегіш","21 жылдамдық","29\""]}},
-    {img:"cat-red-ss.jpg",b:"ss",price:null,ru:{n:"ASEKA черно-красный",s:["Стальная рама","Без скоростей","22-26\"","Цветные спицы"]},kk:{n:"ASEKA қара-қызыл",s:["Болат жақтау","Жылдамдықсыз","22-26\"","Түрлі шабақ"]}},
-    {img:"cat-ibars-purple.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS фиолетовый",s:["Алюм. рама","Цветные обода","Диск. тормоза","26-29\""]},kk:{n:"IBARS күлгін",s:["Алюм. жақтау","Түрлі құрсау","Дискілі тежегіш","26-29\""]}},
-    {img:"cat-ibars-purple2.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS черно-пурпурный",s:["Алюм. рама","Цветные обода","Амортизация","26-29\""]},kk:{n:"IBARS қара-күлгін",s:["Алюм. жақтау","Түрлі құрсау","Амортизация","26-29\""]}}
+    {img:"card-aseka-legend2.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend",s:["Стальная рама","21 скорость","Полная комплектация","20-29\""]},kk:{n:"ASEKA Legend",s:["Болат жақтау","21 жылдамдық","Толық жинақ","20-29\""]}},
+    {img:"card-aseka-legend.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend черный",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA Legend қара",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}},
+    {img:"card-aseka-rhythm.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA в твоем ритме",s:["Сталь / алюминий","21 скорость","Амортизация","20-29\""]},kk:{n:"ASEKA сенің ырғағыңда",s:["Болат / алюминий","21 жылдамдық","Амортизация","20-29\""]}},
+    {img:"card-aseka-white.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA белый",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA ақ",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}},
+    {img:"card-aseka-green.jpg",b:"ss",price:null,ru:{n:"ASEKA без скоростей",s:["Стальная рама","1 скорость","Простота и надежность","22-26\""]},kk:{n:"ASEKA жылдамдықсыз",s:["Болат жақтау","1 жылдамдық","Қарапайым және сенімді","22-26\""]}},
+    {img:"card-ibars-premium.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS премиум",s:["Алюм. рама","Двойные диск. тормоза","Амортизация","26-29\""]},kk:{n:"IBARS премиум",s:["Алюм. жақтау","Қос дискілі тежегіш","Амортизация","26-29\""]}},
+    {img:"card-ibars-alu.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS Aluminium",s:["Алюм. рама","Амортизация","Цветные обода","26-29\""]},kk:{n:"IBARS Aluminium",s:["Алюм. жақтау","Амортизация","Түрлі құрсау","26-29\""]}},
+    {img:"card-ibars-fold.jpg",b:"fold",price:null,ru:{n:"IBARS складной",s:["Складная рама","21 скорость","Литые диски","26\""]},kk:{n:"IBARS бүктелмелі",s:["Бүктелмелі жақтау","21 жылдамдық","Құйма диск","26\""]}},
+    {img:"card-fold-white.jpg",b:"fold",price:null,ru:{n:"Складной 180 белый",s:["Складная рама","Магниевые диски","21 скорость","26\""]},kk:{n:"Бүктелмелі 180 ақ",s:["Бүктелмелі жақтау","Магний дискілері","21 жылдамдық","26\""]}}
   ];
   var BADGE={aseka:["badge aseka","ASEKA","ASEKA"],ibars:["badge ibars","IBARS","IBARS"],
              fold:["badge fold","Складной 180","Бүктелмелі 180"],ss:["badge aseka","Без скоростей","Жылдамдықсыз"]};
@@ -1030,34 +1017,66 @@
     document.querySelectorAll(".reveal:not(.in)").forEach(function(el){io.observe(el);});
   }
 
-  /* ===== Blueprint self-draw ===== */
+  /* ===== Blueprint: pen-speed self-draw, then the bike rides ===== */
+  var spokeA=document.getElementById("spokeA"), spokeB=document.getElementById("spokeB");
+  var rolling=false, bpVisible=false;
+
   function initBlueprint(){
     var bp=document.getElementById("bp");
-    var paths=bp.querySelectorAll(".bp-p");
-    paths.forEach(function(p,i){
-      var L=0; try{L=p.getTotalLength();}catch(e){L=400;}
-      p.style.setProperty("--len",L);
-      p.style.setProperty("--d",(i*95)+"ms");
+    if(!bp) return;
+    var paths=Array.prototype.slice.call(bp.querySelectorAll(".bp-p"));
+    var lens=paths.map(function(p){
+      var L=400; try{L=p.getTotalLength();}catch(e){}
+      p.style.strokeDasharray=L; p.style.strokeDashoffset=L;
+      return L;
     });
-    if(!("IntersectionObserver" in window)){bp.classList.add("drawn");return;}
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      paths.forEach(function(p){p.style.strokeDashoffset=0;});
+      bp.classList.add("rolling"); rolling=true; return;
+    }
+    function draw(){
+      var SPEED=620, t=0;   // px per second -> constant pen speed
+      paths.forEach(function(p,i){
+        var dur=Math.max(180,(lens[i]/SPEED)*1000);
+        if(p.animate){
+          p.animate([{strokeDashoffset:lens[i]},{strokeDashoffset:0}],
+            {duration:dur,delay:t,easing:"cubic-bezier(.35,0,.25,1)",fill:"forwards"});
+        }else{
+          setTimeout(function(){p.style.transition="stroke-dashoffset "+dur+"ms ease";p.style.strokeDashoffset=0;},t);
+        }
+        t += dur*0.62;      // slight overlap: reads as one continuous line
+      });
+      setTimeout(function(){ bp.classList.add("rolling"); rolling=true; }, t+300);
+    }
     new IntersectionObserver(function(en,ob){
-      if(en[0].isIntersecting){bp.classList.add("drawn");ob.disconnect();}
-    },{threshold:.3}).observe(bp);
+      if(en[0].isIntersecting){ bpVisible=true; draw(); ob.disconnect(); }
+    },{threshold:.35}).observe(bp);
+
+    new IntersectionObserver(function(en){ bpVisible=en[0].isIntersecting; },{threshold:0}).observe(bp);
   }
 
-  /* ===== Scroll: progress, wheels, counters ===== */
+  /* wheels roll: base speed + extra from scrolling */
+  var rot=0, lastY=window.scrollY, kick=0;
+  function wheelLoop(){
+    if(rolling && bpVisible){
+      var y=window.scrollY, dv=y-lastY; lastY=y;
+      kick = kick*0.88 + dv*0.55;
+      rot += 0.45 + kick*0.09;
+      var tr="rotate("+rot+"deg)";
+      if(spokeA) spokeA.style.transform=tr;
+      if(spokeB) spokeB.style.transform=tr;
+    } else { lastY=window.scrollY; }
+    requestAnimationFrame(wheelLoop);
+  }
+
+  /* ===== Scroll progress ===== */
   var progress=document.getElementById("progress");
-  var spokeA=document.getElementById("spokeA"), spokeB=document.getElementById("spokeB");
   var ticking=false;
   function onScroll(){
     if(ticking) return; ticking=true;
     requestAnimationFrame(function(){
       var h=document.documentElement.scrollHeight-window.innerHeight;
-      var y=window.scrollY;
-      progress.style.width=(h>0?(y/h)*100:0)+"%";
-      var rot=y*0.32;
-      if(spokeA) spokeA.style.transform="rotate("+rot+"deg)";
-      if(spokeB) spokeB.style.transform="rotate("+rot+"deg)";
+      progress.style.width=(h>0?(window.scrollY/h)*100:0)+"%";
       ticking=false;
     });
   }
@@ -1082,7 +1101,7 @@
   applyLang();
   observeReveal();
   initBlueprint();
-  if(!reduce){counters();onScroll();}
+  if(!reduce){counters();onScroll();requestAnimationFrame(wheelLoop);}
 })();
 </script>
 </body>
