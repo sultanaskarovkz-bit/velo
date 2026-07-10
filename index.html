@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VELO - велосипеды ASEKA и IBARS в Казахстане | Доставка и рассрочка</title>
-<meta name="description" content="Горные и складные велосипеды ASEKA и IBARS. 21 скорость Shimano, двойные дисковые тормоза, амортизация. ASEKA от 49 000 тг, IBARS от 94 000 тг. Доставка по Казахстану, рассрочка Kaspi. Тел: +7 771 037 58 42">
+<meta name="description" content="Горные и складные велосипеды ASEKA и IBARS. 21 скорость Shimano, двойные дисковые тормоза, амортизация. Доставка по Казахстану, рассрочка Kaspi. Тел: +7 771 037 58 42">
 <meta name="theme-color" content="#0B3D2E">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <meta property="og:title" content="VELO - велосипеды ASEKA и IBARS в Казахстане">
-<meta property="og:description" content="Горные и складные велосипеды. ASEKA от 49 000 тг, IBARS от 94 000 тг. Доставка по РК, рассрочка Kaspi.">
+<meta property="og:description" content="Горные и складные велосипеды. Доставка по РК, рассрочка Kaspi.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="img/card-aseka-legend2.jpg">
 
@@ -59,7 +60,7 @@
   header{position:sticky;top:0;z-index:60;background:rgba(245,249,244,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;gap:1.3rem;height:70px}
   .brand{display:flex;align-items:center;gap:.6rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase;letter-spacing:.06em}
-  .brand .mark{width:34px;height:34px;flex:0 0 auto}
+  .brand .mark{width:38px;height:38px;flex:0 0 auto;border-radius:50%;object-fit:contain}
   .brand small{font-family:'Manrope';font-weight:600;font-size:.58rem;letter-spacing:.25em;color:var(--muted);display:block;margin-top:-3px}
   .nav-links{display:flex;gap:1.5rem;margin-left:auto}
   .nav-links a{font-weight:600;font-size:.95rem;color:var(--muted);transition:color .15s;position:relative}
@@ -211,8 +212,6 @@
   .band-list svg{width:22px;height:22px;color:#c79bff;flex:0 0 auto;margin-top:2px}
   .band-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1}
   .band-media img{width:100%;height:100%;object-fit:cover}
-  .band-price{font-family:'Oswald',sans-serif;font-size:1.6rem;color:#fff;margin-bottom:1.2rem}
-  .band-price span{color:#c79bff}
 
   /* Gallery */
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
@@ -297,7 +296,7 @@
     .wrap{width:90vw}
     .nav{height:58px;gap:.6rem}
     .brand{font-size:1.2rem}
-    .brand .mark{width:28px;height:28px}
+    .brand .mark{width:32px;height:32px}
     .lang button{padding:.42rem .5rem;font-size:.74rem}
 
     .hero-veil{background:linear-gradient(178deg,rgba(6,38,25,.80) 0%,rgba(9,45,30,.72) 55%,rgba(9,45,30,.82) 100%)}
@@ -398,7 +397,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="VELO">
-      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0B3D2E"/><g fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="42" r="10"/><circle cx="46" cy="42" r="10"/><path d="M18 42 L30 24 L44 24"/><path d="M30 24 L37 42 L46 42"/></g><path d="M40 20h8l-3 5h-8z" fill="#84CC16"/></svg>
+      <img class="mark" src="img/logo.png" alt="VELO" width="34" height="34">
       <span>VELO<small>ASEKA / IBARS</small></span>
     </a>
     <nav class="nav-links">
@@ -576,7 +575,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow" data-i18n="cat_eyebrow">Модели в наличии</span>
       <h2 data-i18n="cat_h2">Выбери свой велосипед</h2>
-      <p data-i18n="cat_p">Реальные фото со склада. ASEKA от 49 000 тг, IBARS от 94 000 тг. Наличие цветов и размеров уточняйте у менеджера.</p>
+      <p data-i18n="cat_p">Модели ASEKA и IBARS в наличии. Цвета, размеры и цену уточняйте у менеджера - подберем под ваш рост и бюджет.</p>
     </div>
     <div class="cat-grid" id="catGrid"></div>
   </div>
@@ -632,7 +631,6 @@
       <span class="eyebrow light" style="color:#c79bff" data-i18n="ib_eyebrow">IBARS - доступный премиум</span>
       <h2><span data-i18n="ib_h2a">Двигайся</span> <em data-i18n="ib_h2b">на уровень</em> <span data-i18n="ib_h2c">выше</span></h2>
       <p data-i18n="ib_p">Линейка IBARS для тех, кто выбирает лучшее: легкая алюминиевая рама, эффектные цветные обода и продуманная геометрия.</p>
-      <div class="band-price"><span data-i18n="from">от</span> 94 000 <span data-i18n="kzt">тг</span></div>
       <ul class="band-list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="ib1">Легкая алюминиевая рама</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="ib2">Двойные дисковые тормоза</span></li>
@@ -734,7 +732,7 @@
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="#top">
-        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0B3D2E"/><g fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="42" r="10"/><circle cx="46" cy="42" r="10"/><path d="M18 42 L30 24 L44 24"/><path d="M30 24 L37 42 L46 42"/></g><path d="M40 20h8l-3 5h-8z" fill="#84CC16"/></svg>
+        <img class="mark" src="img/logo-white.png" alt="VELO" width="34" height="34">
         <span>VELO<small>ASEKA / IBARS</small></span>
       </a>
       <p data-i18n="foot_p">Горные и складные велосипеды ASEKA и IBARS. Доставка по всему Казахстану, рассрочка Kaspi.</p>
@@ -805,9 +803,9 @@
       ride_eyebrow:"Для города, трассы и приключений",ride_h2a:"Готов покорять",ride_h2b:"любой маршрут",
       ride_p:"Оставьте заявку - подберем велосипед под ваш рост и стиль езды, расскажем про наличие и рассрочку.",ride_btn:"Подобрать велосипед",
       cat_eyebrow:"Модели в наличии",cat_h2:"Выбери свой велосипед",
-      cat_p:"Реальные фото со склада. ASEKA от 49 000 тг, IBARS от 94 000 тг. Наличие цветов и размеров уточняйте у менеджера.",
+      cat_p:"Модели ASEKA и IBARS в наличии. Цвета, размеры и цену уточняйте у менеджера - подберем под ваш рост и бюджет.",
       cards_h3:"Карточки моделей",cards_p:"Характеристики и диаметры колес по каждой линейке.",
-      price_ask:"Цена по запросу",from:"от",kzt:"тг",btn_price:"Узнать цену",price_lbl:"минимальная цена",
+      price_ask:"Цена по запросу",btn_price:"Узнать цену",
       ib_eyebrow:"IBARS - доступный премиум",ib_h2a:"Двигайся",ib_h2b:"на уровень",ib_h2c:"выше",
       ib_p:"Линейка IBARS для тех, кто выбирает лучшее: легкая алюминиевая рама, эффектные цветные обода и продуманная геометрия.",
       ib1:"Легкая алюминиевая рама",ib2:"Двойные дисковые тормоза",ib3:"Амортизация и качественные компоненты",ib4:"Диаметры колес 26, 27.5, 29",ib_btn:"Узнать цену IBARS",
@@ -855,9 +853,9 @@
       ride_eyebrow:"Қала, трасса және саяхат үшін",ride_h2a:"Кез келген жолды",ride_h2b:"бағындыруға дайын",
       ride_p:"Өтінім қалдырыңыз - бойыңыз бен жүріс мәнеріңізге велосипед таңдаймыз, бар-жоғы мен бөліп төлеуді айтамыз.",ride_btn:"Велосипед таңдау",
       cat_eyebrow:"Қоймадағы модельдер",cat_h2:"Өз велосипедіңді таңда",
-      cat_p:"Қоймадан нақты суреттер. ASEKA 49 000 тг бастап, IBARS 94 000 тг бастап. Түс пен өлшемін менеджерден нақтылаңыз.",
+      cat_p:"ASEKA және IBARS модельдері қоймада. Түсін, өлшемін және бағасын менеджерден нақтылаңыз.",
       cards_h3:"Модель карточкалары",cards_p:"Әр желі бойынша сипаттамалар мен доңғалақ диаметрлері.",
-      price_ask:"Бағасы сұраныс бойынша",from:"бастап",kzt:"тг",btn_price:"Бағасын білу",price_lbl:"ең төменгі баға",
+      price_ask:"Бағасы сұраныс бойынша",btn_price:"Бағасын білу",
       ib_eyebrow:"IBARS - қолжетімді премиум",ib_h2a:"Бір деңгей",ib_h2b:"жоғары",ib_h2c:"жүр",
       ib_p:"IBARS желісі ең үздігін таңдайтындарға: жеңіл алюминий жақтау, әсерлі түрлі-түсті құрсау және ойластырылған геометрия.",
       ib1:"Жеңіл алюминий жақтау",ib2:"Қос дискілі тежегіш",ib3:"Амортизация және сапалы компоненттер",ib4:"Доңғалақ диаметрі 26, 27.5, 29",ib_btn:"IBARS бағасын білу",
@@ -880,35 +878,31 @@
   };
 
   /* ===== Catalog data ===== */
-  var ASEKA_MIN=49000, IBARS_MIN=94000;
   var bikes=[
     /* row 1: square-ish banners (ratio ~1.00-1.03) */
-    {img:"card-fold-white.jpg",b:"fold",price:null,ru:{n:"Складной 180 белый",s:["Складная рама","Магниевые диски","21 скорость","26\""]},kk:{n:"Бүктелмелі 180 ақ",s:["Бүктелмелі жақтау","Магний дискілері","21 жылдамдық","26\""]}},
-    {img:"card-ibars-fold.jpg",b:"fold",price:null,ru:{n:"IBARS складной",s:["Складная рама","21 скорость","Литые диски","26\""]},kk:{n:"IBARS бүктелмелі",s:["Бүктелмелі жақтау","21 жылдамдық","Құйма диск","26\""]}},
-    {img:"card-aseka-legend.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend черный",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA Legend қара",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}},
+    {img:"card-fold-white.jpg",b:"fold",ru:{n:"Складной 180 белый",s:["Складная рама","Магниевые диски","21 скорость","26\""]},kk:{n:"Бүктелмелі 180 ақ",s:["Бүктелмелі жақтау","Магний дискілері","21 жылдамдық","26\""]}},
+    {img:"card-ibars-fold.jpg",b:"fold",ru:{n:"IBARS складной",s:["Складная рама","21 скорость","Литые диски","26\""]},kk:{n:"IBARS бүктелмелі",s:["Бүктелмелі жақтау","21 жылдамдық","Құйма диск","26\""]}},
+    {img:"card-aseka-legend.jpg",b:"aseka",ru:{n:"ASEKA Legend черный",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA Legend қара",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}},
     /* row 2: ratio ~1.13-1.25 */
-    {img:"card-ibars-premium.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS премиум",s:["Алюм. рама","Двойные диск. тормоза","Амортизация","26-29\""]},kk:{n:"IBARS премиум",s:["Алюм. жақтау","Қос дискілі тежегіш","Амортизация","26-29\""]}},
-    {img:"card-aseka-legend2.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA Legend",s:["Стальная рама","21 скорость","Полная комплектация","20-29\""]},kk:{n:"ASEKA Legend",s:["Болат жақтау","21 жылдамдық","Толық жинақ","20-29\""]}},
-    {img:"card-aseka-rhythm.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA в твоем ритме",s:["Сталь / алюминий","21 скорость","Амортизация","20-29\""]},kk:{n:"ASEKA сенің ырғағыңда",s:["Болат / алюминий","21 жылдамдық","Амортизация","20-29\""]}},
+    {img:"card-ibars-premium.jpg",b:"ibars",ru:{n:"IBARS премиум",s:["Алюм. рама","Двойные диск. тормоза","Амортизация","26-29\""]},kk:{n:"IBARS премиум",s:["Алюм. жақтау","Қос дискілі тежегіш","Амортизация","26-29\""]}},
+    {img:"card-aseka-legend2.jpg",b:"aseka",ru:{n:"ASEKA Legend",s:["Стальная рама","21 скорость","Полная комплектация","20-29\""]},kk:{n:"ASEKA Legend",s:["Болат жақтау","21 жылдамдық","Толық жинақ","20-29\""]}},
+    {img:"card-aseka-rhythm.jpg",b:"aseka",ru:{n:"ASEKA в твоем ритме",s:["Сталь / алюминий","21 скорость","Амортизация","20-29\""]},kk:{n:"ASEKA сенің ырғағыңда",s:["Болат / алюминий","21 жылдамдық","Амортизация","20-29\""]}},
     /* row 3: wide banners (ratio ~1.27-1.56) */
-    {img:"card-aseka-green.jpg",b:"ss",price:null,ru:{n:"ASEKA без скоростей",s:["Стальная рама","1 скорость","Простота и надежность","22-26\""]},kk:{n:"ASEKA жылдамдықсыз",s:["Болат жақтау","1 жылдамдық","Қарапайым және сенімді","22-26\""]}},
-    {img:"card-ibars-alu.jpg",b:"ibars",price:IBARS_MIN,ru:{n:"IBARS Aluminium",s:["Алюм. рама","Амортизация","Цветные обода","26-29\""]},kk:{n:"IBARS Aluminium",s:["Алюм. жақтау","Амортизация","Түрлі құрсау","26-29\""]}},
-    {img:"card-aseka-white.jpg",b:"aseka",price:ASEKA_MIN,ru:{n:"ASEKA белый",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA ақ",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}}
+    {img:"card-aseka-green.jpg",b:"ss",ru:{n:"ASEKA без скоростей",s:["Стальная рама","1 скорость","Простота и надежность","22-26\""]},kk:{n:"ASEKA жылдамдықсыз",s:["Болат жақтау","1 жылдамдық","Қарапайым және сенімді","22-26\""]}},
+    {img:"card-ibars-alu.jpg",b:"ibars",ru:{n:"IBARS Aluminium",s:["Алюм. рама","Амортизация","Цветные обода","26-29\""]},kk:{n:"IBARS Aluminium",s:["Алюм. жақтау","Амортизация","Түрлі құрсау","26-29\""]}},
+    {img:"card-aseka-white.jpg",b:"aseka",ru:{n:"ASEKA белый",s:["Стальная рама","21 скорость","Диск. тормоза","20-29\""]},kk:{n:"ASEKA ақ",s:["Болат жақтау","21 жылдамдық","Дискілі тежегіш","20-29\""]}}
   ];
   var BADGE={aseka:["badge aseka","ASEKA","ASEKA"],ibars:["badge ibars","IBARS","IBARS"],
              fold:["badge fold","Складной 180","Бүктелмелі 180"],ss:["badge aseka","Без скоростей","Жылдамдықсыз"]};
 
   var lang=localStorage.getItem("velo_lang")||"ru";
-  function money(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g," ");}
 
   function renderCatalog(){
     var t=T[lang], html="";
     bikes.forEach(function(b){
       var d=b[lang], bc=BADGE[b.b], badgeTxt=(lang==="ru"?bc[1]:bc[2]);
       var chips=d.s.map(function(x){return "<li>"+x+"</li>";}).join("");
-      var price = b.price
-        ? '<span class="p">'+t.from+" "+money(b.price)+" "+t.kzt+'<small>'+t.price_lbl+'</small></span>'
-        : '<span class="p ask">'+t.price_ask+'</span>';
+      var price = '<span class="p ask">'+t.price_ask+'</span>';
       html+='<article class="bike reveal">'+
         '<div class="bike-img"><span class="'+bc[0]+'">'+badgeTxt+'</span>'+
         '<img src="img/'+b.img+'" alt="'+d.n+'" loading="lazy"></div>'+
