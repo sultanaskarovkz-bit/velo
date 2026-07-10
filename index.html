@@ -242,6 +242,64 @@
   .cta-benefits li{list-style:none;display:flex;gap:.6rem;align-items:center;color:rgba(255,255,255,.9)}
   .cta-benefits svg{width:20px;height:20px;color:var(--lime-l)}
 
+
+  /* ===== Size guide ===== */
+  .size-sec{background:#fff}
+  .size-table{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+  .size-row{display:grid;grid-template-columns:.8fr 1.1fr 1.5fr;gap:1rem;padding:.95rem 1.2rem;align-items:center;border-bottom:1px solid var(--line)}
+  .size-row:last-child{border-bottom:0}
+  .size-row.head{background:var(--pine);color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}
+  .size-row:not(.head):nth-child(even){background:#F7FBF7}
+  .size-row:not(.head):hover{background:#EEF7EE}
+  .size-d{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.3rem;color:var(--pine)}
+  .size-h{font-weight:700;color:var(--green-d)}
+  .size-w{color:var(--muted);font-size:.93rem}
+  .size-note{margin-top:1rem;font-size:.86rem;color:var(--muted);display:flex;gap:.6rem;align-items:flex-start}
+  .size-note svg{width:18px;height:18px;color:var(--green);flex:0 0 auto;margin-top:2px}
+
+  /* ===== Reviews ===== */
+  .rev-sec{background:var(--bg)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.4rem;display:flex;flex-direction:column;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s;position:relative}
+  .rev:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm)}
+  .rev-stars{display:flex;gap:.15rem;margin-bottom:.8rem}
+  .rev-stars svg{width:17px;height:17px;color:#F5B301;fill:#F5B301}
+  .rev-text{color:var(--ink);font-size:.96rem;margin-bottom:1.2rem;flex:1}
+  .rev-who{display:flex;align-items:center;gap:.7rem}
+  .rev-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--pine));color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:600;flex:0 0 auto}
+  .rev-who b{display:block;font-size:.95rem;color:var(--pine)}
+  .rev-who span{font-size:.78rem;color:var(--muted)}
+
+  /* ===== FAQ ===== */
+  .faq-sec{background:#fff}
+  .faq-list{max-width:900px;margin-inline:auto}
+  .faq{border:1px solid var(--line);border-radius:14px;margin-bottom:.7rem;background:#fff;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+  .faq[open]{border-color:#CFE6CF;box-shadow:var(--shadow-sm)}
+  .faq summary{list-style:none;cursor:pointer;padding:1.05rem 1.2rem;display:flex;align-items:center;gap:1rem;
+    font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.02em;font-size:1rem;color:var(--pine)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"";margin-left:auto;flex:0 0 auto;width:12px;height:12px;
+    border-right:2.4px solid var(--green);border-bottom:2.4px solid var(--green);transform:rotate(45deg);transition:transform .25s}
+  .faq[open] summary::after{transform:rotate(-135deg)}
+  .faq-a{padding:0 1.2rem 1.15rem;color:var(--muted);font-size:.97rem}
+  .faq-n{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--green);flex:0 0 auto}
+
+  @media(max-width:900px){
+    .rev-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:600px){
+    .rev-grid{grid-template-columns:1fr;gap:.8rem}
+    .rev{padding:1.15rem 1.1rem}
+    .size-row{grid-template-columns:.7fr 1fr;gap:.5rem .8rem;padding:.8rem .9rem}
+    .size-row .size-w{grid-column:1 / -1;font-size:.85rem}
+    .size-row.head .size-w{display:none}
+    .size-d{font-size:1.1rem}
+    .faq summary{font-size:.9rem;padding:.9rem 1rem;gap:.7rem}
+    .faq-a{font-size:.92rem;padding:0 1rem 1rem}
+  }
+
   /* Footer */
   footer{background:#07281a;color:rgba(255,255,255,.72);padding:3rem 0 6rem}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;align-items:start}
@@ -389,6 +447,102 @@
     .bp-p{stroke-dashoffset:0 !important}
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "VELO",
+      "url": "https://sultanaskarovkz-bit.github.io/velo/",
+      "logo": "https://sultanaskarovkz-bit.github.io/velo/img/logo.png",
+      "description": "Горные и складные велосипеды ASEKA и IBARS. Доставка по Казахстану, рассрочка Kaspi.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Казахстан"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+7-771-037-58-42",
+        "contactType": "sales",
+        "availableLanguage": [
+          "ru",
+          "kk"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как понять, какой диаметр колес мне нужен?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ориентируйтесь на рост: 20 и 22 дюйма для детей, 24 для подростков, 26 универсальный размер, 27.5 и 29 для взрослых от 165 и 175 см. Выше на странице есть таблица подбора. Напишите нам свой рост, и мы подскажем точно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли купить в рассрочку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Принимаем Kaspi Red и Kaspi Kredit, а также оплату по Kaspi QR и Halyk QR. Менеджер поможет оформить рассрочку за несколько минут."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Доставляете ли в мой город?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Доставляем по всему Казахстану. Сроки и стоимость зависят от города, менеджер назовет их при оформлении заказа."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли гарантия на велосипед?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "По гарантии, обслуживанию и замене деталей вас проконсультирует менеджер при заказе. Оставьте заявку, и мы все расскажем."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Велосипед приезжает собранным?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Комплектацию и то, что нужно сделать перед первой поездкой, менеджер объяснит при заказе. В комплекте идут крылья, фляга, сумка на раму и светоотражатели."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно посмотреть велосипед перед покупкой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, велосипеды есть в наличии. Позвоните нам, и мы подскажем адрес, время работы и что именно сейчас доступно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли модели без скоростей?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. У ASEKA есть версия без скоростей с диаметрами 22, 24 и 26 дюймов. Проще в обслуживании и надежнее, ничего лишнего."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем ASEKA отличается от IBARS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ASEKA это основная линейка: стальные и алюминиевые рамы, 21 скорость, диаметры от 20 до 29 дюймов. IBARS это премиальная линейка: легкая алюминиевая рама, цветные обода, диаметры 26, 27.5 и 29 дюймов."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -402,7 +556,8 @@
     </a>
     <nav class="nav-links">
       <a href="#catalog" data-i18n="nav_models">Модели</a>
-      <a href="#why" data-i18n="nav_why">Почему мы</a>
+      <a href="#size" data-i18n="nav_size">Подбор размера</a>
+      <a href="#faq" data-i18n="nav_faq">Вопросы</a>
       <a href="#pay" data-i18n="nav_pay">Оплата и доставка</a>
       <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
     </nav>
@@ -425,7 +580,9 @@
   <div class="drawer-panel">
     <button class="drawer-close" id="drawerClose" aria-label="Закрыть">&times;</button>
     <a href="#catalog" data-close data-i18n="nav_models">Модели</a>
-    <a href="#why" data-close data-i18n="nav_why">Почему мы</a>
+    <a href="#size" data-close data-i18n="nav_size">Подбор размера</a>
+    <a href="#reviews" data-close data-i18n="rv_eyebrow">Отзывы</a>
+    <a href="#faq" data-close data-i18n="nav_faq">Вопросы</a>
     <a href="#pay" data-close data-i18n="nav_pay">Оплата и доставка</a>
     <a href="#contacts" data-close data-i18n="nav_contacts">Контакты</a>
     <a class="btn btn-dark btn-block" href="tel:+77710375842" data-i18n="btn_call">Позвонить</a>
@@ -624,6 +781,32 @@
   </div>
 </section>
 
+<!-- SIZE GUIDE -->
+<section class="sec size-sec" id="size">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="sz_eyebrow">Подбор по росту</span>
+      <h2 data-i18n="sz_h2">Какой диаметр колес вам нужен</h2>
+      <p data-i18n="sz_p">Ориентируйтесь на рост велосипедиста. Если рост на границе двух размеров - берите больший для города и меньший для активной езды.</p>
+    </div>
+    <div class="size-table reveal">
+      <div class="size-row head">
+        <span data-i18n="sz_c1">Диаметр</span><span data-i18n="sz_c2">Рост</span><span class="size-w" data-i18n="sz_c3">Кому подходит</span>
+      </div>
+      <div class="size-row"><span class="size-d">20"</span><span class="size-h" data-i18n="sz_h1">115 - 130 см</span><span class="size-w" data-i18n="sz_r1">Дети 6 - 9 лет, первый велосипед со скоростями</span></div>
+      <div class="size-row"><span class="size-d">22"</span><span class="size-h" data-i18n="sz_h2b">125 - 140 см</span><span class="size-w" data-i18n="sz_r2">Дети 9 - 11 лет, уверенная езда во дворе и парке</span></div>
+      <div class="size-row"><span class="size-d">24"</span><span class="size-h" data-i18n="sz_h3">135 - 150 см</span><span class="size-w" data-i18n="sz_r3">Подростки 11 - 13 лет, невысокие взрослые</span></div>
+      <div class="size-row"><span class="size-d">26"</span><span class="size-h" data-i18n="sz_h4">150 - 170 см</span><span class="size-w" data-i18n="sz_r4">Подростки и взрослые. Самый универсальный размер</span></div>
+      <div class="size-row"><span class="size-d">27.5"</span><span class="size-h" data-i18n="sz_h5">165 - 180 см</span><span class="size-w" data-i18n="sz_r5">Взрослые. Мягче едет, лучше держит неровности</span></div>
+      <div class="size-row"><span class="size-d">29"</span><span class="size-h" data-i18n="sz_h6">175 см и выше</span><span class="size-w" data-i18n="sz_r6">Высокие взрослые. Накат и скорость на трассе</span></div>
+    </div>
+    <p class="size-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <span data-i18n="sz_note">Таблица ориентировочная. Напишите нам свой рост - подберем точный размер и посадку.</span>
+    </p>
+  </div>
+</section>
+
 <!-- IBARS -->
 <section class="band ibars-band">
   <div class="wrap band-grid">
@@ -664,6 +847,35 @@
   </div>
 </section>
 
+<!-- REVIEWS -->
+<!-- ВНИМАНИЕ: тексты и имена ниже - ЗАГЛУШКИ. Замените на реальные отзывы (Kaspi / Instagram / 2GIS). -->
+<section class="sec rev-sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="rv_eyebrow">Отзывы покупателей</span>
+      <h2 data-i18n="rv_h2">Что говорят о нас</h2>
+      <p data-i18n="rv_p">Мы ценим каждого клиента и отвечаем за то, что продаем.</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev reveal">
+        <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rev-text" data-i18n="rv1_t">ЗАГЛУШКА: вставьте сюда реальный отзыв покупателя.</p>
+        <div class="rev-who"><span class="rev-av">A</span><div><b data-i18n="rv1_n">Имя покупателя</b><span data-i18n="rv1_s">Источник отзыва</span></div></div>
+      </article>
+      <article class="rev reveal">
+        <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rev-text" data-i18n="rv2_t">ЗАГЛУШКА: вставьте сюда реальный отзыв покупателя.</p>
+        <div class="rev-who"><span class="rev-av">B</span><div><b data-i18n="rv2_n">Имя покупателя</b><span data-i18n="rv2_s">Источник отзыва</span></div></div>
+      </article>
+      <article class="rev reveal">
+        <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rev-text" data-i18n="rv3_t">ЗАГЛУШКА: вставьте сюда реальный отзыв покупателя.</p>
+        <div class="rev-who"><span class="rev-av">C</span><div><b data-i18n="rv3_n">Имя покупателя</b><span data-i18n="rv3_s">Источник отзыва</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- PAYMENT -->
 <section class="sec pay" id="pay">
   <div class="wrap pay-grid">
@@ -681,6 +893,42 @@
       <div class="pay-card"><span class="k red">RED</span><div><b>Kaspi Red</b><span data-i18n="p2">Покупка в рассрочку</span></div></div>
       <div class="pay-card"><span class="k credit">KR</span><div><b>Kaspi Kredit</b><span data-i18n="p3">Оформим за пару минут</span></div></div>
       <div class="pay-card"><span class="k halyk">QR</span><div><b>Halyk QR</b><span data-i18n="p4">Оплата картой Halyk</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<!-- ПРОВЕРЬТЕ И ПОПРАВЬТЕ: гарантия (04), сборка (05), сроки доставки (03), адрес и часы (06) -->
+<section class="sec faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-inline:auto;text-align:center">
+      <span class="eyebrow" data-i18n="fq_eyebrow">Вопросы и ответы</span>
+      <h2 data-i18n="fq_h2">Отвечаем на частые вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq reveal"><summary><span class="faq-n">01</span><span data-i18n="fq1_q">Как понять, какой диаметр колес мне нужен?</span></summary>
+        <div class="faq-a" data-i18n="fq1_a">Ориентируйтесь на рост: 20 и 22 дюйма для детей, 24 для подростков, 26 универсальный размер, 27.5 и 29 для взрослых от 165 и 175 см. Выше на странице есть таблица подбора. Напишите нам свой рост, и мы подскажем точно.</div></details>
+
+      <details class="faq reveal"><summary><span class="faq-n">02</span><span data-i18n="fq2_q">Можно ли купить в рассрочку?</span></summary>
+        <div class="faq-a" data-i18n="fq2_a">Да. Принимаем Kaspi Red и Kaspi Kredit, а также оплату по Kaspi QR и Halyk QR. Менеджер поможет оформить рассрочку за несколько минут.</div></details>
+
+      <details class="faq reveal"><summary><span class="faq-n">03</span><span data-i18n="fq3_q">Доставляете ли в мой город?</span></summary>
+        <div class="faq-a" data-i18n="fq3_a">Доставляем по всему Казахстану. Сроки и стоимость зависят от города, менеджер назовет их при оформлении заказа.</div></details>
+
+      <details class="faq reveal"><summary><span class="faq-n">04</span><span data-i18n="fq4_q">Есть ли гарантия на велосипед?</span></summary>
+        <div class="faq-a" data-i18n="fq4_a">По гарантии, обслуживанию и замене деталей вас проконсультирует менеджер при заказе. Оставьте заявку, и мы все расскажем.</div></details>
+
+      <details class="faq reveal"><summary><span class="faq-n">05</span><span data-i18n="fq5_q">Велосипед приезжает собранным?</span></summary>
+        <div class="faq-a" data-i18n="fq5_a">Комплектацию и то, что нужно сделать перед первой поездкой, менеджер объяснит при заказе. В комплекте идут крылья, фляга, сумка на раму и светоотражатели.</div></details>
+
+      <details class="faq reveal"><summary><span class="faq-n">06</span><span data-i18n="fq6_q">Можно посмотреть велосипед перед покупкой?</span></summary>
+        <div class="faq-a" data-i18n="fq6_a">Да, велосипеды есть в наличии. Позвоните нам, и мы подскажем адрес, время работы и что именно сейчас доступно.</div></details>
+
+      <details class="faq reveal"><summary><span class="faq-n">07</span><span data-i18n="fq7_q">Есть ли модели без скоростей?</span></summary>
+        <div class="faq-a" data-i18n="fq7_a">Да. У ASEKA есть версия без скоростей с диаметрами 22, 24 и 26 дюймов. Проще в обслуживании и надежнее, ничего лишнего.</div></details>
+
+      <details class="faq reveal"><summary><span class="faq-n">08</span><span data-i18n="fq8_q">Чем ASEKA отличается от IBARS?</span></summary>
+        <div class="faq-a" data-i18n="fq8_a">ASEKA это основная линейка: стальные и алюминиевые рамы, 21 скорость, диаметры от 20 до 29 дюймов. IBARS это премиальная линейка: легкая алюминиевая рама, цветные обода, диаметры 26, 27.5 и 29 дюймов.</div></details>
     </div>
   </div>
 </section>
@@ -821,6 +1069,39 @@
       foot_p:"Горные и складные велосипеды ASEKA и IBARS. Доставка по всему Казахстану, рассрочка Kaspi.",
       foot_wa:"Написать в WhatsApp",foot_hours:"Ежедневно, 10:00 - 20:00",foot_sections:"Разделы",
       foot_note:"Доставка по Казахстану. Рассрочка Kaspi Red / Kaspi Kredit.",
+      sz_eyebrow:"Подбор по росту",sz_h2:"Какой диаметр колес вам нужен",
+      sz_p:"Ориентируйтесь на рост велосипедиста. Если рост на границе двух размеров - берите больший для города и меньший для активной езды.",
+      sz_c1:"Диаметр",sz_c2:"Рост",sz_c3:"Кому подходит",
+      sz_h1:"115 - 130 см",sz_h2b:"125 - 140 см",sz_h3:"135 - 150 см",sz_h4:"150 - 170 см",sz_h5:"165 - 180 см",sz_h6:"175 см и выше",
+      sz_r1:"Дети 6 - 9 лет, первый велосипед со скоростями",
+      sz_r2:"Дети 9 - 11 лет, уверенная езда во дворе и парке",
+      sz_r3:"Подростки 11 - 13 лет, невысокие взрослые",
+      sz_r4:"Подростки и взрослые. Самый универсальный размер",
+      sz_r5:"Взрослые. Мягче едет, лучше держит неровности",
+      sz_r6:"Высокие взрослые. Накат и скорость на трассе",
+      sz_note:"Таблица ориентировочная. Напишите нам свой рост - подберем точный размер и посадку.",
+      rv_eyebrow:"Отзывы покупателей",rv_h2:"Что говорят о нас",rv_p:"Мы ценим каждого клиента и отвечаем за то, что продаем.",
+      rv1_t:"ЗАГЛУШКА: вставьте сюда реальный отзыв покупателя.",rv1_n:"Имя покупателя",rv1_s:"Источник отзыва",
+      rv2_t:"ЗАГЛУШКА: вставьте сюда реальный отзыв покупателя.",rv2_n:"Имя покупателя",rv2_s:"Источник отзыва",
+      rv3_t:"ЗАГЛУШКА: вставьте сюда реальный отзыв покупателя.",rv3_n:"Имя покупателя",rv3_s:"Источник отзыва",
+      fq_eyebrow:"Вопросы и ответы",fq_h2:"Отвечаем на частые вопросы",
+      fq1_q:"Как понять, какой диаметр колес мне нужен?",
+      fq1_a:"Ориентируйтесь на рост: 20 и 22 дюйма для детей, 24 для подростков, 26 универсальный размер, 27.5 и 29 для взрослых от 165 и 175 см. Выше на странице есть таблица подбора. Напишите нам свой рост, и мы подскажем точно.",
+      fq2_q:"Можно ли купить в рассрочку?",
+      fq2_a:"Да. Принимаем Kaspi Red и Kaspi Kredit, а также оплату по Kaspi QR и Halyk QR. Менеджер поможет оформить рассрочку за несколько минут.",
+      fq3_q:"Доставляете ли в мой город?",
+      fq3_a:"Доставляем по всему Казахстану. Сроки и стоимость зависят от города, менеджер назовет их при оформлении заказа.",
+      fq4_q:"Есть ли гарантия на велосипед?",
+      fq4_a:"По гарантии, обслуживанию и замене деталей вас проконсультирует менеджер при заказе. Оставьте заявку, и мы все расскажем.",
+      fq5_q:"Велосипед приезжает собранным?",
+      fq5_a:"Комплектацию и то, что нужно сделать перед первой поездкой, менеджер объяснит при заказе. В комплекте идут крылья, фляга, сумка на раму и светоотражатели.",
+      fq6_q:"Можно посмотреть велосипед перед покупкой?",
+      fq6_a:"Да, велосипеды есть в наличии. Позвоните нам, и мы подскажем адрес, время работы и что именно сейчас доступно.",
+      fq7_q:"Есть ли модели без скоростей?",
+      fq7_a:"Да. У ASEKA есть версия без скоростей с диаметрами 22, 24 и 26 дюймов. Проще в обслуживании и надежнее, ничего лишнего.",
+      fq8_q:"Чем ASEKA отличается от IBARS?",
+      fq8_a:"ASEKA это основная линейка: стальные и алюминиевые рамы, 21 скорость, диаметры от 20 до 29 дюймов. IBARS это премиальная линейка: легкая алюминиевая рама, цветные обода, диаметры 26, 27.5 и 29 дюймов.",
+      nav_size:"Подбор размера",nav_faq:"Вопросы",
       tick:["21 скорость Shimano","двойные дисковые тормоза","амортизация передней вилки","магниевые диски","стальные и алюминиевые рамы","доставка по всему Казахстану","рассрочка Kaspi"],
       sel:["Помогите выбрать","ASEKA складной 180","ASEKA горный (хардтейл)","IBARS премиум","Модель без скоростей"],
       wa_hi:"Здравствуйте! Заявка с сайта VELO.",wa_name:"Имя",wa_phone:"Телефон",wa_model:"Модель"
@@ -871,6 +1152,39 @@
       foot_p:"ASEKA және IBARS тау, бүктелмелі велосипедтері. Қазақстан бойынша жеткізу, Kaspi бөліп төлеу.",
       foot_wa:"WhatsApp-қа жазу",foot_hours:"Күн сайын, 10:00 - 20:00",foot_sections:"Бөлімдер",
       foot_note:"Қазақстан бойынша жеткізу. Kaspi Red / Kaspi Kredit бөліп төлеу.",
+      sz_eyebrow:"Бойға қарай таңдау",sz_h2:"Сізге қандай доңғалақ диаметрі керек",
+      sz_p:"Велосипедшінің бойына қараңыз. Егер бой екі өлшемнің шекарасында болса - қала үшін үлкенін, белсенді жүріс үшін кішісін алыңыз.",
+      sz_c1:"Диаметр",sz_c2:"Бой",sz_c3:"Кімге қолайлы",
+      sz_h1:"115 - 130 см",sz_h2b:"125 - 140 см",sz_h3:"135 - 150 см",sz_h4:"150 - 170 см",sz_h5:"165 - 180 см",sz_h6:"175 см және жоғары",
+      sz_r1:"6 - 9 жас балалар, жылдамдықты алғашқы велосипед",
+      sz_r2:"9 - 11 жас балалар, аула мен саябақта сенімді жүріс",
+      sz_r3:"11 - 13 жас жасөспірімдер, бойы шағын ересектер",
+      sz_r4:"Жасөспірімдер мен ересектер. Ең әмбебап өлшем",
+      sz_r5:"Ересектер. Жұмсақ жүреді, кедір-бұдырды жақсы ұстайды",
+      sz_r6:"Бойшаң ересектер. Трассада екпін мен жылдамдық",
+      sz_note:"Кесте шамамен берілген. Бойыңызды жазыңыз - нақты өлшем мен отырысты таңдаймыз.",
+      rv_eyebrow:"Сатып алушылар пікірлері",rv_h2:"Біз туралы не дейді",rv_p:"Біз әр клиентті бағалаймыз және сатқанымыз үшін жауап береміз.",
+      rv1_t:"ОРЫН: осында нақты пікірді қойыңыз.",rv1_n:"Сатып алушының аты",rv1_s:"Пікір көзі",
+      rv2_t:"ОРЫН: осында нақты пікірді қойыңыз.",rv2_n:"Сатып алушының аты",rv2_s:"Пікір көзі",
+      rv3_t:"ОРЫН: осында нақты пікірді қойыңыз.",rv3_n:"Сатып алушының аты",rv3_s:"Пікір көзі",
+      fq_eyebrow:"Сұрақ-жауап",fq_h2:"Жиі қойылатын сұрақтарға жауап береміз",
+      fq1_q:"Маған қандай доңғалақ диаметрі керегін қалай білуге болады?",
+      fq1_a:"Бойға қараңыз: балаларға 20 және 22 дюйм, жасөспірімдерге 24, 26 әмбебап өлшем, ересектерге 165 және 175 см бастап 27.5 және 29. Жоғарыда таңдау кестесі бар. Бойыңызды жазыңыз, дәл айтамыз.",
+      fq2_q:"Бөліп төлеп сатып алуға бола ма?",
+      fq2_a:"Иә. Kaspi Red және Kaspi Kredit қабылдаймыз, сондай-ақ Kaspi QR және Halyk QR арқылы төлем. Менеджер бөліп төлеуді бірер минутта рәсімдеуге көмектеседі.",
+      fq3_q:"Менің қалама жеткізесіз бе?",
+      fq3_a:"Қазақстанның барлық аймағына жеткіземіз. Мерзімі мен құны қалаға байланысты, менеджер тапсырыс рәсімдеу кезінде айтады.",
+      fq4_q:"Велосипедке кепілдік бар ма?",
+      fq4_a:"Кепілдік, қызмет көрсету және бөлшектерді ауыстыру бойынша менеджер тапсырыс кезінде кеңес береді. Өтінім қалдырыңыз, бәрін айтамыз.",
+      fq5_q:"Велосипед жиналған күйде келе ме?",
+      fq5_a:"Жинақты және алғашқы жүріс алдында не істеу керегін менеджер тапсырыс кезінде түсіндіреді. Жинаққа қанаттар, фляга, жақтауға сөмке және шағылыстырғыштар кіреді.",
+      fq6_q:"Сатып алар алдында велосипедті көруге бола ма?",
+      fq6_a:"Иә, велосипедтер қоймада бар. Бізге қоңырау шалыңыз, мекенжайды, жұмыс уақытын және қазір не бар екенін айтамыз.",
+      fq7_q:"Жылдамдықсыз модельдер бар ма?",
+      fq7_a:"Иә. ASEKA-да 22, 24 және 26 дюймдік жылдамдықсыз нұсқасы бар. Қызмет көрсетуге оңай және сенімді, артық ештеңе жоқ.",
+      fq8_q:"ASEKA мен IBARS айырмашылығы неде?",
+      fq8_a:"ASEKA негізгі желі: болат және алюминий жақтау, 21 жылдамдық, 20-дан 29 дюймге дейінгі диаметрлер. IBARS премиум желі: жеңіл алюминий жақтау, түрлі-түсті құрсау, 26, 27.5 және 29 дюйм.",
+      nav_size:"Өлшем таңдау",nav_faq:"Сұрақтар",
       tick:["21 жылдамдық Shimano","қос дискілі тежегіш","алдыңғы шанышқы амортизациясы","магний дискілері","болат және алюминий жақтау","Қазақстан бойынша жеткізу","Kaspi бөліп төлеу"],
       sel:["Таңдауға көмектесіңіз","ASEKA бүктелмелі 180","ASEKA тау (хардтейл)","IBARS премиум","Жылдамдықсыз модель"],
       wa_hi:"Сәлеметсіз бе! VELO сайтынан өтінім.",wa_name:"Аты",wa_phone:"Телефон",wa_model:"Модель"
