@@ -1,0 +1,16 @@
+{
+  "name": "VELO MAFIA - велосипеды ASEKA и IBARS",
+  "short_name": "VELO MAFIA",
+  "description": "Горные и складные велосипеды в Казахстане. Доставка, рассрочка Kaspi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F5F9F4",
+  "theme_color": "#0B3D2E",
+  "lang": "ru",
+  "icons": [
+    {"src": "favicon/favicon-192x192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "favicon/favicon-512x512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "favicon/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
